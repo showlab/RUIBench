@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- phones show the desktop layout, scaled down to the screen (no separate phone design) -->
+<meta name="viewport" content="width=1240">
+<title>RUIBench</title>
+<meta name="description" content="RUIBench: 30 agentic manipulation tasks and RUIKit, 13 robot-use interfaces under shared perception and control. Changing only the interface moves a frontier agent from 45% to 81% success.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RUIBench: What Makes a Good Robot-Use Interface?">
+<meta property="og:description" content="30 agentic manipulation tasks, 13 robot-use interfaces, frontier agents and a fine-tuned 4B model, in simulation and on a real Franka.">
+<meta property="og:url" content="https://showlab.github.io/RUIBench/">
+<meta property="og:image" content="https://showlab.github.io/RUIBench/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/logo/mark.svg?v=6f6811fe">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@800&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=45171a86">
+</head>
+<body>
+<!-- agent marks (LobeHub icons, MIT): Claude for Claude Code, OpenAI for Codex, Qwen for Qwen3.5-4B, as in the paper's figures -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-cc" viewBox="0 0 24 24"><path fill="currentColor" d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z"/></symbol><symbol id="i-codex" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></symbol><symbol id="i-qwen" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12.604 1.34c.393.69.784 1.382 1.174 2.075a.18.18 0 00.157.091h5.552c.174 0 .322.11.446.327l1.454 2.57c.19.337.24.478.024.837-.26.43-.513.864-.76 1.3l-.367.658c-.106.196-.223.28-.04.512l2.652 4.637c.172.301.111.494-.043.77-.437.785-.882 1.564-1.335 2.34-.159.272-.352.375-.68.37-.777-.016-1.552-.01-2.327.016a.099.099 0 00-.081.05 575.097 575.097 0 01-2.705 4.74c-.169.293-.38.363-.725.364-.997.003-2.002.004-3.017.002a.537.537 0 01-.465-.271l-1.335-2.323a.09.09 0 00-.083-.049H4.982c-.285.03-.553-.001-.805-.092l-1.603-2.77a.543.543 0 01-.002-.54l1.207-2.12a.198.198 0 000-.197 550.951 550.951 0 01-1.875-3.272l-.79-1.395c-.16-.31-.173-.496.095-.965.465-.813.927-1.625 1.387-2.436.132-.234.304-.334.584-.335a338.3 338.3 0 012.589-.001.124.124 0 00.107-.063l2.806-4.895a.488.488 0 01.422-.246c.524-.001 1.053 0 1.583-.006L11.704 1c.341-.003.724.032.9.34zm-3.432.403a.06.06 0 00-.052.03L6.254 6.788a.157.157 0 01-.135.078H3.253c-.056 0-.07.025-.041.074l5.81 10.156c.025.042.013.062-.034.063l-2.795.015a.218.218 0 00-.2.116l-1.32 2.31c-.044.078-.021.118.068.118l5.716.008c.046 0 .08.02.104.061l1.403 2.454c.046.081.092.082.139 0l5.006-8.76.783-1.382a.055.055 0 01.096 0l1.424 2.53a.122.122 0 00.107.062l2.763-.02a.04.04 0 00.035-.02.041.041 0 000-.04l-2.9-5.086a.108.108 0 010-.113l.293-.507 1.12-1.977c.024-.041.012-.062-.035-.062H9.2c-.059 0-.073-.026-.043-.077l1.434-2.505a.107.107 0 000-.114L9.225 1.774a.06.06 0 00-.053-.031zm6.29 8.02c.046 0 .058.02.034.06l-.832 1.465-2.613 4.585a.056.056 0 01-.05.029.058.058 0 01-.05-.029L8.498 9.841c-.02-.034-.01-.052.028-.054l.216-.012 6.722-.012z"/></symbol></svg>
+
+<header class="topbar" id="topbar">
+  <div class="container">
+    <a class="mark wordmark" href="#top" aria-label="RUIBench"><img class="rui-mark" src="assets/logo/rui-static.svg?v=6abcf02c" alt="RUI" width="402" height="200">Bench</a>
+    <nav aria-label="Sections">
+      <a href="#video">Video</a>
+      <a href="#overview">Overview</a>
+      <a href="#interfaces">Interfaces</a>
+      <a href="#tasks">Tasks</a>
+      <a href="#ruikit">RUIKit</a>
+      <a href="#findings">Findings</a>
+      <a href="#citation">Cite</a>
+    </nav>
+    <!-- TODO: the paper's link once public -->
+    <span class="tb-btns">
+      <a class="tb-btn" aria-disabled="true" title="Coming soon">Paper</a>
+      <a class="tb-btn" href="https://github.com/showlab/RUIBench" target="_blank" rel="noopener">Code</a>
+    </span>
+  </div>
+  <div class="tb-progress" id="tb-progress" aria-hidden="true"></div>
+</header>
+
+<section class="hero" id="top">
+  <div class="board" aria-hidden="true"><div class="board-plane" id="board"></div></div>
+  <div class="board-veil" aria-hidden="true"></div>
+  <div class="container">
+   <div class="hero-text">
+    <h1 class="wordmark" aria-label="RUIBench"><img class="rui-mark" src="assets/logo/rui.svg?v=e1151443" alt="RUI" width="402" height="200">Bench</h1>
+    <p class="subtitle">What Makes a Good Robot-Use Interface?</p>
+    <p class="authors">
+      <span class="au"><a href="https://chenanno.github.io/">Yanzhe Chen</a><sup>*</sup>,</span>
+      <span class="au"><a href="https://caozhijun.top/">Zhijun Cao</a><sup>*</sup>,</span>
+      <span class="au"><a href="https://www.baizechen.site/">Zechen Bai</a><sup>*</sup>,</span>
+      <span class="au"><a href="https://wenzhengzeng.github.io/">Wenzheng Zeng</a><sup>*</sup>,</span>
+      <span class="au"><a href="https://kevinskwk.github.io/">Kevin Yuchen Ma</a>,</span>
+      <span class="au"><a href="https://linyq17.github.io/">Yiqi Lin</a>,</span>
+      <span class="au"><a href="https://ethanliang99.github.io/">Guoqiang Liang</a>,</span>
+      <span class="au"><a href="https://scholar.google.com/citations?user=dAEHm8AAAAAJ&amp;hl=en">Xiaokang Liu</a>,</span>
+      <span class="au"><a href="https://skjack.github.io/">Ke Sun</a>,</span>
+      <span class="au-pair"><span class="au"><a href="https://qhlin.me/">Kevin Qinghong Lin</a>,</span>
+      <span class="au"><a href="https://sites.google.com/view/showlab">Mike Zheng Shou</a><sup>†</sup></span></span>
+    </p>
+    <p class="affil"><span>Show Lab, National University of Singapore</span></p>
+    <p class="eq-note"><sup>*</sup>Equal contribution<span class="sep">·</span><sup>†</sup>Corresponding author</p>
+    <div class="pills">
+      <!-- TODO: the paper's and the daily paper's links once public -->
+      <a class="pill" title="Coming soon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg>Paper
+      </a>
+      <a class="pill" title="Coming soon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.4446 11.5059c0 1.1021.1673 2.1585.4847 3.1563-.0378-.0028-.0691-.0058-.1058-.0058-.4209 0-.8015.16-1.0704.4512-.3454.3737-.4984.8335-.4316 1.293a1.576 1.576 0 0 0 .2148.5978c-.2319.1864-.4018.4456-.4844.7578-.0646.2448-.131.7543.2149 1.2794a1.4552 1.4552 0 0 0-.0625.1055c-.208.3923-.2207.8372-.0371 1.25.2783.6258.9696 1.1175 2.3126 1.6467.8356.3292 1.5988.5411 1.6056.543 1.1046.2847 2.104.4277 2.969.4277 1.4173 0 2.4754-.3849 3.1525-1.1446 1.538.2651 2.791.1403 3.592.006.6773.7555 1.7332 1.1387 3.1467 1.1387.8649 0 1.8643-.143 2.969-.4278.0068-.0019.77-.2138 1.6056-.543 1.343-.5292 2.0343-1.0208 2.3126-1.6466.1836-.4129.171-.8577-.037-1.25a1.4685 1.4685 0 0 0-.0626-.1056c.346-.525.2795-1.0346.2149-1.2793-.0826-.3122-.2525-.5714-.4844-.7579.11-.1816.1831-.3788.2148-.5977.0669-.4595-.0862-.9193-.4316-1.293-.2688-.2913-.6495-.4513-1.0704-.4513-.0209 0-.0376.0008-.0588.0018.3162-.9966.4846-2.0518.4846-3.1523 0-5.807-4.7362-10.5144-10.5789-10.5144-5.8426 0-10.5788 4.7073-10.5788 10.5144Zm10.5788-9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1-.2696 2.2365c-.0039-.0047-.0079-.011-.0117-.0156-.274-.3255-.6679-.5059-1.1075-.5059-.352 0-.714.1155-1.0763.3438-.2403.1517-.5058.422-.7793.7598-.2534-.3492-.608-.5832-1.0137-.6465a1.5174 1.5174 0 0 0-.2344-.0176c-.9263 0-1.4828.7993-1.6935 1.5177-.1046.2426-.6065 1.3482-1.3614 2.0978-1.1681 1.1601-1.4458 2.3534-.8396 3.6382-.843.1029-1.5836.0927-2.365-.006.5906-1.212.3626-2.4388-.8426-3.6322-.755-.7496-1.2568-1.8552-1.3614-2.0978-.2107-.7184-.7673-1.5177-1.6935-1.5177-.078 0-.1568.0054-.2344.0176-.4057.0633-.7604.2973-1.0137.6465-.2735-.3379-.539-.6081-.7794-.7598-.3622-.2283-.7243-.3438-1.0762-.3438-.4266 0-.8094.171-1.0821.4786a9.4208 9.4208 0 0 1-.2598-2.1936c0-5.237 4.2749-9.483 9.5475-9.483zM8.6443 7.0036c-.4838.0043-.9503.2667-1.1934.7227-.3536.6633-.1006 1.4873.5645 1.84.351.1862.4883-.5261.836-.6485.3107-.1095.841.399 1.0078.086.3536-.6634.1025-1.4874-.5625-1.84a1.3659 1.3659 0 0 0-.6524-.1602Zm6.8403 0c-.2199-.002-.4426.05-.6504.1602-.665.3526-.9181 1.1766-.5645 1.84.1669.313.6971-.1955 1.0079-.086.3476.1224.4867.8347.838.6485.6649-.3527.916-1.1767.5624-1.84-.243-.456-.7096-.7184-1.1934-.7227Zm-9.7565 1.418a.8768.8768 0 0 0-.877.877c0 .4846.3925.877.877.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zm12.6434 0c-.4845 0-.879.3925-.879.877 0 .4846.3945.877.879.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zM8.7927 11.459c-.179-.003-.2793.1107-.2793.416 0 .8097.3874 2.125 1.4279 2.924.207-.7123 1.3453-1.2832 1.5079-1.2012.2315.1167.2191.4417.6074.7266.3884-.285.374-.6098.6056-.7266.1627-.082 1.3009.4889 1.5079 1.2012 1.0404-.799 1.4278-2.1144 1.4278-2.924 0-1.2212-1.583.6402-3.5413.6485-1.4686-.0061-2.7266-1.0558-3.2639-1.0645zM4.312 14.4768c.5792.365 1.6964 2.2751 2.1056 3.0177.1371.2488.371.3536.582.3536.4188 0 .7465-.4138.0391-.9395-1.0636-.791-.6914-2.0846-.1836-2.1642a.4302.4302 0 0 1 .0664-.004c.4616 0 .666.7892.666.7892s.5959 1.4898 1.6213 2.508c.942.9356 1.062 1.703.4961 2.6661-.0164-.004-.0159.0236-.1484.2149-.1853.2673-.4322.4688-.7188.6152-.5062.2269-1.1397.2696-1.7833.2696-1.037 0-2.1017-.1824-2.6975-.336-.0293-.0075-3.6505-.9567-3.1916-1.8224.0771-.1454.2033-.2031.3633-.2031.6463 0 1.823.9551 2.3283.9551.113 0 .196-.0865.2285-.2031.2249-.8045-3.2787-1.0522-2.9846-2.1642.0519-.1967.193-.2757.3907-.2754.854 0 2.7704 1.4923 3.172 1.4923.0307 0 .0525-.0085.0645-.0274.2012-.3227.1096-.5865-1.3087-1.4395-1.4182-.8533-2.4315-1.329-1.8653-1.9416.0651-.0707.1574-.1015.2695-.1015.8611.0002 2.8948 1.84 2.8948 1.84s.5487.5683.8809.5683c.0762 0 .1416-.0315.1855-.1054.2355-.3946-2.1858-2.2183-2.3224-2.971-.0926-.51.0641-.7676.3555-.7676-.0006.008.1701-.0285.4942.1759zm16.2257.5918c-.1366.7526-2.5579 2.5764-2.3224 2.9709.044.074.1092.1055.1855.1055.3321 0 .881-.5684.881-.5684s2.0336-1.8397 2.8947-1.84c.1121 0 .2044.0308.2695.1016.5662.6125-.447 1.0882-1.8653 1.9415-1.4183.853-1.51 1.1168-1.3087 1.4396.012.0188.0337.0273.0644.0273.4016 0 2.3181-1.4923 3.1721-1.4923.1977-.0002.3388.0787.3907.2754.294 1.112-3.2095 1.3597-2.9846 2.1642.0325.1166.1156.2032.2285.2032.5054 0 1.682-.9552 2.3283-.9552.16 0 .2862.0577.3633.2032.459.8656-3.1623 1.8149-3.1916 1.8224-.5958.1535-1.6605.336-2.6975.336-.6351 0-1.261-.0409-1.7638-.2599-.2949-.1472-.5488-.3516-.7383-.625-.0411-.0682-.1026-.1476-.1426-.205-.5726-.9679-.455-1.7371.4903-2.676 1.0254-1.0182 1.6212-2.508 1.6212-2.508s.2044-.7891.666-.7891a.4318.4318 0 0 1 .0665.0039c.5078.0796.88 1.3732-.1836 2.1642-.7074.5257-.3797.9395.039.9395.211 0 .445-.1047.5821-.3535.4092-.7426 1.5264-2.6527 2.1056-3.0178.5588-.3524.99-.1816.8497.5918z"/></svg>Daily Paper
+      </a>
+      <a class="pill" href="https://github.com/showlab/RUIBench" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>Code
+      </a>
+      <a class="pill" href="https://huggingface.co/showlab/RUIBench-Qwen" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.4446 11.5059c0 1.1021.1673 2.1585.4847 3.1563-.0378-.0028-.0691-.0058-.1058-.0058-.4209 0-.8015.16-1.0704.4512-.3454.3737-.4984.8335-.4316 1.293a1.576 1.576 0 0 0 .2148.5978c-.2319.1864-.4018.4456-.4844.7578-.0646.2448-.131.7543.2149 1.2794a1.4552 1.4552 0 0 0-.0625.1055c-.208.3923-.2207.8372-.0371 1.25.2783.6258.9696 1.1175 2.3126 1.6467.8356.3292 1.5988.5411 1.6056.543 1.1046.2847 2.104.4277 2.969.4277 1.4173 0 2.4754-.3849 3.1525-1.1446 1.538.2651 2.791.1403 3.592.006.6773.7555 1.7332 1.1387 3.1467 1.1387.8649 0 1.8643-.143 2.969-.4278.0068-.0019.77-.2138 1.6056-.543 1.343-.5292 2.0343-1.0208 2.3126-1.6466.1836-.4129.171-.8577-.037-1.25a1.4685 1.4685 0 0 0-.0626-.1056c.346-.525.2795-1.0346.2149-1.2793-.0826-.3122-.2525-.5714-.4844-.7579.11-.1816.1831-.3788.2148-.5977.0669-.4595-.0862-.9193-.4316-1.293-.2688-.2913-.6495-.4513-1.0704-.4513-.0209 0-.0376.0008-.0588.0018.3162-.9966.4846-2.0518.4846-3.1523 0-5.807-4.7362-10.5144-10.5789-10.5144-5.8426 0-10.5788 4.7073-10.5788 10.5144Zm10.5788-9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1-.2696 2.2365c-.0039-.0047-.0079-.011-.0117-.0156-.274-.3255-.6679-.5059-1.1075-.5059-.352 0-.714.1155-1.0763.3438-.2403.1517-.5058.422-.7793.7598-.2534-.3492-.608-.5832-1.0137-.6465a1.5174 1.5174 0 0 0-.2344-.0176c-.9263 0-1.4828.7993-1.6935 1.5177-.1046.2426-.6065 1.3482-1.3614 2.0978-1.1681 1.1601-1.4458 2.3534-.8396 3.6382-.843.1029-1.5836.0927-2.365-.006.5906-1.212.3626-2.4388-.8426-3.6322-.755-.7496-1.2568-1.8552-1.3614-2.0978-.2107-.7184-.7673-1.5177-1.6935-1.5177-.078 0-.1568.0054-.2344.0176-.4057.0633-.7604.2973-1.0137.6465-.2735-.3379-.539-.6081-.7794-.7598-.3622-.2283-.7243-.3438-1.0762-.3438-.4266 0-.8094.171-1.0821.4786a9.4208 9.4208 0 0 1-.2598-2.1936c0-5.237 4.2749-9.483 9.5475-9.483zM8.6443 7.0036c-.4838.0043-.9503.2667-1.1934.7227-.3536.6633-.1006 1.4873.5645 1.84.351.1862.4883-.5261.836-.6485.3107-.1095.841.399 1.0078.086.3536-.6634.1025-1.4874-.5625-1.84a1.3659 1.3659 0 0 0-.6524-.1602Zm6.8403 0c-.2199-.002-.4426.05-.6504.1602-.665.3526-.9181 1.1766-.5645 1.84.1669.313.6971-.1955 1.0079-.086.3476.1224.4867.8347.838.6485.6649-.3527.916-1.1767.5624-1.84-.243-.456-.7096-.7184-1.1934-.7227Zm-9.7565 1.418a.8768.8768 0 0 0-.877.877c0 .4846.3925.877.877.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zm12.6434 0c-.4845 0-.879.3925-.879.877 0 .4846.3945.877.879.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zM8.7927 11.459c-.179-.003-.2793.1107-.2793.416 0 .8097.3874 2.125 1.4279 2.924.207-.7123 1.3453-1.2832 1.5079-1.2012.2315.1167.2191.4417.6074.7266.3884-.285.374-.6098.6056-.7266.1627-.082 1.3009.4889 1.5079 1.2012 1.0404-.799 1.4278-2.1144 1.4278-2.924 0-1.2212-1.583.6402-3.5413.6485-1.4686-.0061-2.7266-1.0558-3.2639-1.0645zM4.312 14.4768c.5792.365 1.6964 2.2751 2.1056 3.0177.1371.2488.371.3536.582.3536.4188 0 .7465-.4138.0391-.9395-1.0636-.791-.6914-2.0846-.1836-2.1642a.4302.4302 0 0 1 .0664-.004c.4616 0 .666.7892.666.7892s.5959 1.4898 1.6213 2.508c.942.9356 1.062 1.703.4961 2.6661-.0164-.004-.0159.0236-.1484.2149-.1853.2673-.4322.4688-.7188.6152-.5062.2269-1.1397.2696-1.7833.2696-1.037 0-2.1017-.1824-2.6975-.336-.0293-.0075-3.6505-.9567-3.1916-1.8224.0771-.1454.2033-.2031.3633-.2031.6463 0 1.823.9551 2.3283.9551.113 0 .196-.0865.2285-.2031.2249-.8045-3.2787-1.0522-2.9846-2.1642.0519-.1967.193-.2757.3907-.2754.854 0 2.7704 1.4923 3.172 1.4923.0307 0 .0525-.0085.0645-.0274.2012-.3227.1096-.5865-1.3087-1.4395-1.4182-.8533-2.4315-1.329-1.8653-1.9416.0651-.0707.1574-.1015.2695-.1015.8611.0002 2.8948 1.84 2.8948 1.84s.5487.5683.8809.5683c.0762 0 .1416-.0315.1855-.1054.2355-.3946-2.1858-2.2183-2.3224-2.971-.0926-.51.0641-.7676.3555-.7676-.0006.008.1701-.0285.4942.1759zm16.2257.5918c-.1366.7526-2.5579 2.5764-2.3224 2.9709.044.074.1092.1055.1855.1055.3321 0 .881-.5684.881-.5684s2.0336-1.8397 2.8947-1.84c.1121 0 .2044.0308.2695.1016.5662.6125-.447 1.0882-1.8653 1.9415-1.4183.853-1.51 1.1168-1.3087 1.4396.012.0188.0337.0273.0644.0273.4016 0 2.3181-1.4923 3.1721-1.4923.1977-.0002.3388.0787.3907.2754.294 1.112-3.2095 1.3597-2.9846 2.1642.0325.1166.1156.2032.2285.2032.5054 0 1.682-.9552 2.3283-.9552.16 0 .2862.0577.3633.2032.459.8656-3.1623 1.8149-3.1916 1.8224-.5958.1535-1.6605.336-2.6975.336-.6351 0-1.261-.0409-1.7638-.2599-.2949-.1472-.5488-.3516-.7383-.625-.0411-.0682-.1026-.1476-.1426-.205-.5726-.9679-.455-1.7371.4903-2.676 1.0254-1.0182 1.6212-2.508 1.6212-2.508s.2044-.7891.666-.7891a.4318.4318 0 0 1 .0665.0039c.5078.0796.88 1.3732-.1836 2.1642-.7074.5257-.3797.9395.039.9395.211 0 .445-.1047.5821-.3535.4092-.7426 1.5264-2.6527 2.1056-3.0178.5588-.3524.99-.1816.8497.5918z"/></svg>Models
+      </a>
+      <a class="pill" href="https://huggingface.co/datasets/showlab/RUIBench-Rollouts" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.4446 11.5059c0 1.1021.1673 2.1585.4847 3.1563-.0378-.0028-.0691-.0058-.1058-.0058-.4209 0-.8015.16-1.0704.4512-.3454.3737-.4984.8335-.4316 1.293a1.576 1.576 0 0 0 .2148.5978c-.2319.1864-.4018.4456-.4844.7578-.0646.2448-.131.7543.2149 1.2794a1.4552 1.4552 0 0 0-.0625.1055c-.208.3923-.2207.8372-.0371 1.25.2783.6258.9696 1.1175 2.3126 1.6467.8356.3292 1.5988.5411 1.6056.543 1.1046.2847 2.104.4277 2.969.4277 1.4173 0 2.4754-.3849 3.1525-1.1446 1.538.2651 2.791.1403 3.592.006.6773.7555 1.7332 1.1387 3.1467 1.1387.8649 0 1.8643-.143 2.969-.4278.0068-.0019.77-.2138 1.6056-.543 1.343-.5292 2.0343-1.0208 2.3126-1.6466.1836-.4129.171-.8577-.037-1.25a1.4685 1.4685 0 0 0-.0626-.1056c.346-.525.2795-1.0346.2149-1.2793-.0826-.3122-.2525-.5714-.4844-.7579.11-.1816.1831-.3788.2148-.5977.0669-.4595-.0862-.9193-.4316-1.293-.2688-.2913-.6495-.4513-1.0704-.4513-.0209 0-.0376.0008-.0588.0018.3162-.9966.4846-2.0518.4846-3.1523 0-5.807-4.7362-10.5144-10.5789-10.5144-5.8426 0-10.5788 4.7073-10.5788 10.5144Zm10.5788-9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1-.2696 2.2365c-.0039-.0047-.0079-.011-.0117-.0156-.274-.3255-.6679-.5059-1.1075-.5059-.352 0-.714.1155-1.0763.3438-.2403.1517-.5058.422-.7793.7598-.2534-.3492-.608-.5832-1.0137-.6465a1.5174 1.5174 0 0 0-.2344-.0176c-.9263 0-1.4828.7993-1.6935 1.5177-.1046.2426-.6065 1.3482-1.3614 2.0978-1.1681 1.1601-1.4458 2.3534-.8396 3.6382-.843.1029-1.5836.0927-2.365-.006.5906-1.212.3626-2.4388-.8426-3.6322-.755-.7496-1.2568-1.8552-1.3614-2.0978-.2107-.7184-.7673-1.5177-1.6935-1.5177-.078 0-.1568.0054-.2344.0176-.4057.0633-.7604.2973-1.0137.6465-.2735-.3379-.539-.6081-.7794-.7598-.3622-.2283-.7243-.3438-1.0762-.3438-.4266 0-.8094.171-1.0821.4786a9.4208 9.4208 0 0 1-.2598-2.1936c0-5.237 4.2749-9.483 9.5475-9.483zM8.6443 7.0036c-.4838.0043-.9503.2667-1.1934.7227-.3536.6633-.1006 1.4873.5645 1.84.351.1862.4883-.5261.836-.6485.3107-.1095.841.399 1.0078.086.3536-.6634.1025-1.4874-.5625-1.84a1.3659 1.3659 0 0 0-.6524-.1602Zm6.8403 0c-.2199-.002-.4426.05-.6504.1602-.665.3526-.9181 1.1766-.5645 1.84.1669.313.6971-.1955 1.0079-.086.3476.1224.4867.8347.838.6485.6649-.3527.916-1.1767.5624-1.84-.243-.456-.7096-.7184-1.1934-.7227Zm-9.7565 1.418a.8768.8768 0 0 0-.877.877c0 .4846.3925.877.877.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zm12.6434 0c-.4845 0-.879.3925-.879.877 0 .4846.3945.877.879.877a.8768.8768 0 0 0 .877-.877.8768.8768 0 0 0-.877-.877zM8.7927 11.459c-.179-.003-.2793.1107-.2793.416 0 .8097.3874 2.125 1.4279 2.924.207-.7123 1.3453-1.2832 1.5079-1.2012.2315.1167.2191.4417.6074.7266.3884-.285.374-.6098.6056-.7266.1627-.082 1.3009.4889 1.5079 1.2012 1.0404-.799 1.4278-2.1144 1.4278-2.924 0-1.2212-1.583.6402-3.5413.6485-1.4686-.0061-2.7266-1.0558-3.2639-1.0645zM4.312 14.4768c.5792.365 1.6964 2.2751 2.1056 3.0177.1371.2488.371.3536.582.3536.4188 0 .7465-.4138.0391-.9395-1.0636-.791-.6914-2.0846-.1836-2.1642a.4302.4302 0 0 1 .0664-.004c.4616 0 .666.7892.666.7892s.5959 1.4898 1.6213 2.508c.942.9356 1.062 1.703.4961 2.6661-.0164-.004-.0159.0236-.1484.2149-.1853.2673-.4322.4688-.7188.6152-.5062.2269-1.1397.2696-1.7833.2696-1.037 0-2.1017-.1824-2.6975-.336-.0293-.0075-3.6505-.9567-3.1916-1.8224.0771-.1454.2033-.2031.3633-.2031.6463 0 1.823.9551 2.3283.9551.113 0 .196-.0865.2285-.2031.2249-.8045-3.2787-1.0522-2.9846-2.1642.0519-.1967.193-.2757.3907-.2754.854 0 2.7704 1.4923 3.172 1.4923.0307 0 .0525-.0085.0645-.0274.2012-.3227.1096-.5865-1.3087-1.4395-1.4182-.8533-2.4315-1.329-1.8653-1.9416.0651-.0707.1574-.1015.2695-.1015.8611.0002 2.8948 1.84 2.8948 1.84s.5487.5683.8809.5683c.0762 0 .1416-.0315.1855-.1054.2355-.3946-2.1858-2.2183-2.3224-2.971-.0926-.51.0641-.7676.3555-.7676-.0006.008.1701-.0285.4942.1759zm16.2257.5918c-.1366.7526-2.5579 2.5764-2.3224 2.9709.044.074.1092.1055.1855.1055.3321 0 .881-.5684.881-.5684s2.0336-1.8397 2.8947-1.84c.1121 0 .2044.0308.2695.1016.5662.6125-.447 1.0882-1.8653 1.9415-1.4183.853-1.51 1.1168-1.3087 1.4396.012.0188.0337.0273.0644.0273.4016 0 2.3181-1.4923 3.1721-1.4923.1977-.0002.3388.0787.3907.2754.294 1.112-3.2095 1.3597-2.9846 2.1642.0325.1166.1156.2032.2285.2032.5054 0 1.682-.9552 2.3283-.9552.16 0 .2862.0577.3633.2032.459.8656-3.1623 1.8149-3.1916 1.8224-.5958.1535-1.6605.336-2.6975.336-.6351 0-1.261-.0409-1.7638-.2599-.2949-.1472-.5488-.3516-.7383-.625-.0411-.0682-.1026-.1476-.1426-.205-.5726-.9679-.455-1.7371.4903-2.676 1.0254-1.0182 1.6212-2.508 1.6212-2.508s.2044-.7891.666-.7891a.4318.4318 0 0 1 .0665.0039c.5078.0796.88 1.3732-.1836 2.1642-.7074.5257-.3797.9395.039.9395.211 0 .445-.1047.5821-.3535.4092-.7426 1.5264-2.6527 2.1056-3.0178.5588-.3524.99-.1816.8497.5918z"/></svg>Dataset
+      </a>
+    </div>
+
+   </div>
+  </div>
+</section>
+
+<section class="band" aria-label="RUIBench in numbers">
+  <div class="container band-grid">
+    <div class="band-item"><div class="band-num" data-count="30">30</div><div class="band-label">agentic tasks</div></div>
+    <div class="band-item"><div class="band-num" data-count="5">5</div><div class="band-label">task suites</div></div>
+    <div class="band-item"><div class="band-num" data-count="13">13</div><div class="band-label">robot-use interfaces</div></div>
+    <div class="band-item"><div class="band-num" data-count="24">24</div><div class="band-label">shared tools</div></div>
+    <div class="band-item"><div class="band-num" data-count="7500">7,500</div><div class="band-label">simulated test episodes</div></div>
+    <div class="band-item"><div class="band-num" data-count="650">650</div><div class="band-label">real-robot episodes</div></div>
+  </div>
+</section>
+
+<section class="section" id="video">
+  <div class="container">
+    <h2 class="section-title">Video</h2>
+    <div class="rule"></div>
+    <div class="demo-video reveal">
+      <video controls muted loop playsinline preload="metadata" poster="assets/poster/demo/ruibench-demo.webp" width="1920" height="1080" aria-label="RUIBench demo video">
+        <source src="assets/video/demo/ruibench-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="abstract">
+  <div class="container narrow abstract">
+    <h2 class="section-title">Abstract</h2>
+    <div class="rule"></div>
+    <p id="abstract-text"></p>
+  </div>
+</section>
+
+<section class="section" id="overview">
+  <div class="container">
+    <h2 class="section-title">Same agent. Same task. Same robot.</h2>
+    <div class="rule"></div>
+    <p class="lead">Only the interface changes, and a frontier agent's success shifts from <b>45% to 81%</b>.</p>
+    <figure class="ovfig reveal" id="ov">
+      <div class="ovfig-art" id="ov-art"><img src="assets/img/teaser/top.webp" width="2397" height="862" alt="RUIKit: a robot-use interface between the foundation model and the robot; six action abstractions (Joint, Delta, Step, Pose, Point, Skill) and two interaction forms (per-action, program)."></div>
+      <figcaption><span><b>A.</b> The RUI sits between the model and the robot. <b>B.1</b> Six action abstractions. <b>B.2</b> Control returns after each action, or when a program ends.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section alt" id="interfaces">
+  <div class="container">
+    <h2 class="section-title title-13"><span class="big-num">13</span> Robot-Use Interfaces</h2>
+    <div class="rule"></div>
+    <p class="lead">An RUI is the actions an agent can command and how they are organized: <b>action abstraction</b>, what it commands, crossed with <b>interaction form</b>, when control returns.</p>
+    <div class="rui-eq reveal" role="img" aria-label="6 action abstractions times 2 interaction forms, plus 1 free choice, give 13 robot-use interfaces">
+      <span class="eq-t"><b>6</b><small>action abstractions</small></span><span class="eq-op">×</span>
+      <span class="eq-t"><b>2</b><small>interaction forms</small></span><span class="eq-op">+</span>
+      <span class="eq-t"><b>1</b><small>free choice</small></span><span class="eq-op">=</span>
+      <span class="eq-t res"><b>13</b><small>robot-use interfaces</small></span>
+    </div>
+    <div class="kit">
+      <div class="card kit-player reveal">
+        <div class="media full" id="kit-media"><video id="kit-video" muted loop playsinline autoplay preload="none"></video></div>
+        <div class="kit-controls">
+          <pre class="code" id="kit-code" aria-live="polite"></pre>
+          <p class="note" style="margin:0" id="kit-note"></p>
+        </div>
+      </div>
+      <!-- an RUI, built layer by layer: abstraction x form = the RUI, + RUI-Free; the layers drive the player -->
+      <div class="card layers reveal" style="--d:.06s">
+        <div class="layer">
+          <span class="layer-node" aria-hidden="true">1</span>
+          <p class="layer-h"><b>Action abstraction</b><span class="layer-q">what the agent commands</span></p>
+          <div class="abs-seg" id="abs-grid" role="group" aria-label="Action abstraction"></div>
+          <p class="layer-def" id="abs-def" aria-live="polite"></p>
+        </div>
+        <div class="layer">
+          <span class="layer-node" aria-hidden="true">2</span>
+          <p class="layer-h"><b>Interaction form</b><span class="layer-q">when control returns</span></p>
+          <div class="form-pick" id="form-switch" role="group" aria-label="Interaction form">
+            <button type="button" class="pa" data-f="pa" aria-pressed="true"><b>Per-action</b><span class="timeline" aria-hidden="true"><span class="tl-step tl-think">8 s</span><span class="tl-step tl-act">pick</span><span class="tl-step tl-think">8 s</span><span class="tl-step tl-act">place</span></span><small>At most one action per arm per reply; control returns after each.</small></button>
+            <button type="button" class="pg" data-f="pg" aria-pressed="false"><b>Program</b><span class="timeline" aria-hidden="true"><span class="tl-step tl-think">8 s</span><span class="tl-step tl-act">pick</span><span class="tl-step tl-act">place</span><span class="tl-step tl-act">look</span></span><small>One program per reply; control returns when it ends.</small></button>
+          </div>
+        </div>
+        <div class="layer res" aria-live="polite">
+          <span class="layer-node" aria-hidden="true">=</span>
+          <p class="layer-h"><b class="rui-name pa" id="rui-name">Joint</b><span class="layer-q">one of the 12 fixed RUIs</span></p>
+        </div>
+        <div class="layer free">
+          <p class="layer-h"><span class="free-k">+1</span><b>RUI-Free</b><span class="layer-q">both layers open: the agent chooses, reply by reply</span></p>
+          <div class="free-log" id="free-log" role="img" aria-label="Example: under RUI-Free an agent picks a different interface in each reply"></div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tasks">
+  <div class="container">
+    <h2 class="section-title title-13"><span class="big-num">30</span> Agentic Tasks</h2>
+    <div class="rule"></div>
+    <p class="lead">Beyond pick-and-place: agents must reason, acquire information through interaction, and adapt to changing physical conditions.</p>
+    <div class="rui-eq wrap reveal" role="img" aria-label="5 task suites times 6 tasks per suite give 30 agentic tasks; 5 of them also run on a real Franka">
+      <span class="eq-t"><b>5</b><small>task suites</small></span><span class="eq-op">×</span>
+      <span class="eq-t"><b>6</b><small>tasks per suite</small></span><span class="eq-op">=</span>
+      <span class="eq-t res"><b>30</b><small>agentic tasks</small></span><span class="eq-sep" aria-hidden="true"></span>
+      <span class="eq-t"><b>5</b><small>also on a real Franka</small></span>
+    </div>
+    <h3 class="sub-title">In simulation<span class="title-note">2× speed</span></h3>
+    <p class="sub-lead">Each card plays the <b>scripted reference</b>; switch to Claude Code or Codex to see an agent.</p>
+    <div class="gal-bar">
+      <div class="tabs" id="suite-chips" role="group" aria-label="Filter tasks by suite"></div>
+      <div class="seg" id="gallery-source" role="group" aria-label="Video shown on every card">
+        <button type="button" data-src="scripted" aria-pressed="true">Scripted reference</button>
+        <button type="button" data-src="cc" aria-pressed="false"><svg class="ag-ico cc" aria-hidden="true"><use href="#i-cc"/></svg>Claude Code</button>
+        <button type="button" data-src="codex" aria-pressed="false"><svg class="ag-ico codex" aria-hidden="true"><use href="#i-codex"/></svg>Codex</button>
+      </div>
+    </div>
+    <p class="suite-gist" id="suite-gist" aria-live="polite"></p>
+    <div class="task-grid" id="task-grid"></div>
+    <div class="real-sub" id="real">
+    <h3 class="sub-title">On a real Franka<span class="title-note">4× speed</span></h3>
+    <p class="sub-lead">Both agents drive a Franka Research&nbsp;3 through <b>all 13 RUIs</b>, on one task per suite. Pick a task, then any of its 26 runs.</p>
+    <div class="real-head">
+      <div class="tabs" id="real-tabs" role="group" aria-label="Real-robot task"></div>
+    </div>
+    <div class="real-stage">
+      <div class="real-player"><video id="real-video" controls muted loop playsinline preload="metadata"></video></div>
+      <div class="card real-info" id="real-info" aria-live="polite"></div>
+    </div>
+    <div class="matrix" id="real-matrix"></div>
+    <div class="form-key">
+      <span><i style="background:var(--pa)"></i>per-action RUI</span>
+      <span><i style="background:var(--pg)"></i>program RUI</span>
+      <span><i style="background:var(--faint)"></i>RUI-Free</span>
+      <span>One of five layouts per task shown.</span>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="ruikit">
+  <div class="container">
+    <h2 class="section-title">RUIKit: One Harness for Every Interface</h2>
+    <div class="rule"></div>
+    <p class="lead">For a given agent and task, <b>only the RUI varies</b>; the harness, tools, evaluation protocol and simulator stay fixed.</p>
+    <div class="kit-row">
+      <figure class="kit-fig reveal" id="kit-fig">
+        <img src="assets/img/ruikit.webp" width="1402" height="1370" alt="RUIKit overview: harness, model, interface, 24 shared tools, protocol and engine; the scorer's verdict is withheld from the agent." loading="lazy">
+      </figure>
+    <div class="principles stack reveal" style="--d:.06s">
+      <div class="card principle"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="4.5" rx="1.6"/><rect class="s" x="6" y="9.75" width="16.5" height="4.5" rx="1.6"/><rect x="3.5" y="16" width="17" height="4.5" rx="1.6"/></svg></span><b>Only the RUI varies</b><p>Harness, 24 tools, protocol and backend stay fixed.</p></div>
+      <div class="card principle"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="f" d="M3 9a2 2 0 0 1 2-2h2.4l1.5-2.3a1 1 0 0 1 .84-.45h4.52a1 1 0 0 1 .84.45L16.6 7H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle class="h" cx="12" cy="13.5" r="3.6"/></svg></span><b>Non-privileged observations</b><p>RGB-D cameras and robot state only.</p></div>
+      <div class="card principle"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle class="f" cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.6M10 2.75h4M12 2.75V6M18.2 6.6l1.3-1.3"/></svg></span><b>Continuous physical time</b><p>The world moves on during each 8&nbsp;s reply.</p></div>
+      <div class="card principle"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="f" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/><path d="M8.75 12.25l2.25 2.25 4.25-4.5"/></svg></span><b>Independent evaluation</b><p>The verdict is withheld; the agent decides when it is done.</p></div>
+      <div class="card principle"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h11.5"/><path class="f" d="M5 21v-1.6a3.5 3.5 0 0 1 7 0V21"/><path d="M8.5 15.9l2.9-8.6"/><circle cx="12.1" cy="5.4" r="2"/><path d="M14 6.1l5.5 2.4M19.5 8.5v2.5M17 11h5M17 11v4M22 11v4"/></svg></span><b>Same definitions on hardware</b><p>A real Franka runs all 13 RUIs unchanged.</p></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="findings">
+  <div class="container">
+    <h2 class="section-title">Findings</h2>
+    <div class="rule"></div>
+    <div class="kf">
+      <article class="card kf-card reveal">
+        <div class="kf-body">
+          <span class="tag">Finding 1</span>
+          <div class="big">45.3<span class="arrow">→</span><span class="to cc">80.7</span><small>%</small></div>
+          <h3>Embodied performance depends on both the agent and its interface</h3>
+          <p>The RUI alone moves Claude Code from 45.3% to 80.7%, far more than the 2.1 points between agents.</p>
+          <a href="#results">Interface effects →</a>
+        </div>
+      </article>
+      <article class="card kf-card reveal" style="--d:.05s">
+        <div class="kf-body">
+          <span class="tag">Finding 2</span>
+          <div class="big">57.8<span class="arrow">→</span><span class="to pg">75.6</span><small>%</small></div>
+          <h3>Efficient execution requires both fewer decisions and effective feedback</h3>
+          <p>Action composition reduces decision burden, and in-program feedback adds further gains.</p>
+          <a href="#decisions">Decision compression →</a>
+        </div>
+      </article>
+      <article class="card kf-card reveal" style="--d:.1s">
+        <div class="kf-body">
+          <span class="tag">Finding 3</span>
+          <div class="big">90.0<span class="arrow">→</span><span class="to cc">36.0</span><small>%</small></div>
+          <h3>Real-world execution changes interface preferences</h3>
+          <p>Claude Code's programs lead per-action by 23.3 points in simulation but trail on the real robot.</p>
+          <a href="#sim2real">Sim to real →</a>
+        </div>
+      </article>
+      <article class="card kf-card reveal" style="--d:.15s">
+        <div class="kf-body">
+          <span class="tag">Finding 4</span>
+          <div class="big"><span class="to cc">82.1</span><small>%</small></div>
+          <h3>Observing failure does not guarantee recognizing it</h3>
+          <p>Most failed episodes still end in a completion claim.</p>
+          <a href="#verification">Verification gap →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="results">
+  <div class="container">
+    <p class="eyebrow">Finding 1</p>
+    <h2 class="section-title">Interface Effects in Simulation</h2>
+    <div class="rule"></div>
+    <p class="lead">Changing only the RUI shifts Claude Code from 45.3% to 80.7%: <b>interface affordances matter only when agents can effectively use them.</b></p>
+    <div class="results-grid pair">
+      <div class="card chart-card reveal">
+        <h3 class="chart-title">Performance depends on both the agent and its interface</h3>
+        <p class="chart-sub">Average success of each of the 13 RUIs; the line marks each agent's mean</p>
+        <div class="legend panel-legend"><span><i class="pdot" style="background:var(--pa)"></i>Per-action</span><span><i class="pdot" style="background:var(--pg)"></i>Program</span><span><i class="pdia"></i>Free</span></div>
+        <div id="chart-a"></div>
+        <p class="insight">The RUI moves Claude Code by 35.4 points, far more than the 2.1-point gap between agents: <b>the same interface does not benefit every agent equally</b>.</p>
+      </div>
+      <div class="card chart-card reveal" style="--d:.05s">
+        <div class="chart-top">
+          <div>
+            <h3 class="chart-title">Success by action abstraction and interaction form</h3>
+            <p class="chart-sub" id="rui-sub"></p>
+          </div>
+          <div class="seg" id="rui-agent" role="group" aria-label="Agent">
+            <button type="button" data-agent="cc" aria-pressed="true"><svg class="ag-ico cc" aria-hidden="true"><use href="#i-cc"/></svg>Claude Code</button>
+            <button type="button" data-agent="codex" aria-pressed="false"><svg class="ag-ico codex" aria-hidden="true"><use href="#i-codex"/></svg>Codex</button>
+            <button type="button" data-agent="qwen" aria-pressed="false"><svg class="ag-ico qwen" aria-hidden="true"><use href="#i-qwen"/></svg>Qwen3.5-4B FT</button>
+          </div>
+        </div>
+        <div class="legend" id="rui-legend"></div>
+        <div id="rui-chart"></div>
+        <p class="insight"><b>Pose and Skill are the two best per-action RUIs for all three agents</b>, even though Pose scores 0.0% zero-shot.</p>
+      </div>
+    </div>
+    <div class="results-grid one" style="margin-top:16px">
+      <div class="card chart-card reveal">
+        <h3 class="chart-title">Success by RUI and suite</h3>
+        <p class="chart-sub">Success (%) per suite and on average over the 30 tasks, five test missions each (Table 3)</p>
+        <div class="heat-wrap" id="suite-heat"></div>
+        <p class="insight">RUI-Free reaches 80.7% for Codex, above every fixed RUI.</p>
+      </div>
+    </div>
+    <div class="real-sub" id="small-models">
+    <h3 class="sub-title">Learning to use an interface</h3>
+    <p class="sub-lead">Fine-tuning lifts Qwen3.5-4B from 1.9% to 27.3%, most with abstractions that name a target (Pose, Point, Skill): <b>a good RUI is also easy to learn</b>.</p>
+    <div class="qwen-grid">
+      <div class="card chart-card reveal">
+        <div class="chart-top">
+          <div>
+            <h3 class="chart-title"><svg class="ag-ico qwen" aria-hidden="true"><use href="#i-qwen"/></svg>Qwen3.5-4B: zero-shot to fine-tuned</h3>
+            <p class="chart-sub">Success (%) over 30 tasks × 5 test missions per RUI</p>
+          </div>
+        </div>
+        <div class="legend" style="margin-bottom:8px"><span><i class="sw" style="background:#b3bac3"></i>Zero-shot</span><span><i class="sw" style="background:var(--pa)"></i>Per-action, fine-tuned</span><span><i class="sw" style="background:var(--pg)"></i>Program, fine-tuned</span></div>
+        <div id="qwen-chart"></div>
+      </div>
+      <div class="qwen-side reveal" style="--d:.08s">
+        <div class="clip-grid" id="qwen-clips"></div>
+        <p class="note" style="margin:12px 0 0">Successful test episodes of the fine-tuned Qwen3.5-4B (2× speed).</p>
+      </div>
+    </div>
+    </div>
+    <details class="table-wrap" open>
+      <summary>Full results table (Table 3 of the paper)</summary>
+      <div class="table-scroll"><table class="main" id="main-table"></table></div>
+      <p class="note" id="table-note"></p>
+    </details>
+  </div>
+</section>
+
+<section class="section" id="decisions">
+  <div class="container">
+    <p class="eyebrow">Finding 2</p>
+    <h2 class="section-title">Decision Compression and Feedback</h2>
+    <div class="rule"></div>
+    <p class="lead">Per-action control fragments a plan into many model decisions (<b>execution fragmentation</b>). Composing actions removes decisions; feedback inside programs adds further gains.</p>
+    <div class="results-grid pair">
+      <div class="card chart-card reveal" id="ablation">
+        <h3 class="chart-title">Fewer decisions and effective feedback</h3>
+        <p class="chart-sub">Claude Code on Delta, Step and Point; 90 episodes each</p>
+        <div id="chart-b"></div>
+        <p class="insight">Action sequences cut median turns from 29 to 16.5; in-program feedback adds 10 points.</p>
+      </div>
+      <div class="card chart-card reveal" style="--d:.05s">
+        <h3 class="chart-title">Turns, cost and claims</h3>
+        <p class="chart-sub">Claude Code on Delta, Step and Point; median turns, mean API cost per episode</p>
+        <table class="check-table abl-table" id="abl-table"></table>
+        <p class="insight">What matters is <b>where feedback can influence the next action</b>, not how long execution runs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="sim2real">
+  <div class="container">
+    <p class="eyebrow">Finding 3</p>
+    <h2 class="section-title">From Simulation to Reality</h2>
+    <div class="rule"></div>
+    <p class="lead">Interface advantages in simulation do not necessarily transfer: under physical uncertainty, <b>feedback and local correction</b> matter. 650 real-robot episodes, judged by a human operator.</p>
+    <div class="qwen-grid sr-row">
+      <div class="card chart-card reveal">
+        <h3 class="chart-title">Real-world execution changes interface preferences</h3>
+        <p class="chart-sub">Success (%) on five matched tasks (Sim: one seed; Real: 650 episodes); abstractions average both forms</p>
+        <div class="legend panel-legend"><span><svg class="ag-ico cc" aria-hidden="true"><use href="#i-cc"/></svg>Claude Code</span><span><svg class="ag-ico codex" aria-hidden="true"><use href="#i-codex"/></svg>Codex</span><span><i class="pline"></i>Per-action / Delta</span><span><i class="pline dash"></i>Program / Skill</span><span><i class="pflip"></i>Flip</span></div>
+        <div class="sr-panels" id="real-chart"></div>
+        <p class="insight">Delta leads for both agents on the real robot; RUI-Free drops from 100.0% to 44.0%.</p>
+      </div>
+      <div class="qwen-side sr-side reveal" style="--d:.08s">
+        <div class="sr-tiles" id="sr-demo"></div>
+        <p class="note" style="margin:12px 0 0">Claude Code on Domino Run (WK3): Program-Delta succeeds in simulation but fails on the real robot; Delta succeeds in both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="verification">
+  <div class="container">
+    <p class="eyebrow">Finding 4</p>
+    <h2 class="section-title">The Verification Gap</h2>
+    <div class="rule"></div>
+    <p class="lead">Most failed episodes still end in a completion claim, <b>illusory completion</b>, though the failure is often visible in frames the agent already received.</p>
+    <div class="gap-row">
+      <div class="card gap-stat reveal">
+        <div class="big" id="gap-big">82.1%</div>
+        <p>of Claude Code's failed episodes end in a completion claim.</p>
+        <div class="gap-bars hbar" id="gap-bars"></div>
+        <p class="insight">A fresh judge recognizes <b>70.2%</b> and <b>80.9%</b> of these false claims from those frames.</p>
+      </div>
+      <div class="claims" id="claims"></div>
+    </div>
+    <div class="card check-card reveal">
+      <div>
+        <h3 class="chart-title">Action-level checks are insufficient for task-level verification</h3>
+        <p class="chart-sub">Post-condition checks agree with 88.6% of human labels.</p>
+        <p class="note" style="margin:10px 0 0">Reporting or retrying failed actions lowers false claims but does not raise success.</p>
+      </div>
+      <table class="check-table" id="check-table"></table>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="citation">
+  <div class="container narrow">
+    <h2 class="section-title">BibTeX</h2>
+    <div class="rule"></div>
+    <div class="bib">
+      <button class="pill" type="button" id="copy-bib">Copy</button>
+<pre id="bibtex">@article{chen2026ruibench,
+  title={Ruibench: What makes a good robot-use interface?},
+  author={Chen, Yanzhe and Cao, Zhijun and Bai, Zechen and Zeng, Wenzheng and Ma, Kevin Yuchen and Lin, Yiqi and Liang, Guoqiang and Liu, Xiaokang and Sun, Ke and Lin, Kevin Qinghong and Shou, Mike Zheng},
+  journal={arXiv preprint arXiv:},
+  year={2026}
+}</pre>
+    </div>
+  </div>
+</section>
+
+
+<dialog class="lightbox" id="lightbox" aria-label="Episode video">
+  <button class="lb-close" type="button" id="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="lb-media"><video id="lb-video" controls muted loop playsinline></video></div>
+  <div class="lb-body">
+    <h3 class="lb-title" id="lb-title"></h3>
+    <div class="lb-tabs" id="lb-tabs"></div>
+    <div class="lb-meta" id="lb-meta"></div>
+    <p class="lb-text" id="lb-instr"></p>
+    <p class="lb-text" id="lb-hint"></p>
+  </div>
+</dialog>
+<div class="tooltip" id="tooltip" role="status"></div>
+
+<script src="assets/js/data.js?v=54060e86"></script>
+<script src="assets/js/site.js?v=6edbfe61"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# Everything on this branch is the built project page (index.html and assets/), published from the page's
+# working branch by tools/publish_page.py. Nothing here is edited in place, so there is nothing to ignore
+# except what the operating system leaves behind.
+.DS_Store

@@ -1,0 +1,14 @@
+<!doctype html>
+<!-- Renders the wordmark for export: tools/export_logo.py screenshots this page (?dark=1: light on dark). -->
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap">
+<style>
+html, body { margin: 0; background: transparent; }
+body { display: flex; align-items: center; justify-content: center; height: 100vh; }
+.wordmark { font-family: Manrope, Arial, sans-serif; font-weight: 800; letter-spacing: -.03em; color: #464d56; white-space: nowrap; font-size: 200px; line-height: 1; }
+.dark .wordmark { color: #e9edf2; }
+.wordmark img { display: inline-block; vertical-align: baseline; height: .72em; width: auto; margin-right: .015em; }
+</style></head>
+<body><span class="wordmark"><img src="rui.svg" alt="RUI">Bench</span>
+<script>if (new URLSearchParams(location.search).get("dark")) document.body.classList.add("dark");</script>
+</body></html>

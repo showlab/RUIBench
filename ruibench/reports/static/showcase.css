@@ -1,0 +1,116 @@
+/* RUIBench showcase: four suites, six tasks each.  A task opens with what the
+   agent under test is given -- prompt, hint, first frame -- and ends with the
+   scripted reference succeeding at the easy level. */
+html, body { background: var(--ground); color: var(--ink); }
+body { margin: 0; font-family: var(--font-ui); font-size: var(--step-0); line-height: 1.5; }
+.showcase { padding-inline: 24px; padding-block: 0 56px; max-width: 1480px; margin: 0 auto; }
+.top {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;
+  padding-block: 18px 14px; border-bottom: 1px solid var(--rule);
+}
+.top b { font-family: var(--font-label); font-size: var(--step-3); letter-spacing: 0.01em; }
+.top span { color: var(--muted); }
+.suite { padding-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.suite-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.suite-head h2 {
+  margin: 0; font-family: var(--font-label); font-size: var(--step-2); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.suite-head p { margin: 0; color: var(--muted); }
+.tasks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px; align-items: start; }
+
+/* a task */
+.task {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 16px; display: flex; flex-direction: column; gap: 14px; min-width: 0;
+}
+.task-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; }
+.task h3 { margin: 0; font-size: var(--step-1); font-weight: 600; text-wrap: balance; }
+.task .id {
+  font-family: var(--font-mono); font-weight: 500; color: var(--ink-2);
+  background: var(--surface-2); border: 1px solid var(--rule); border-radius: 4px; padding: 0 5px; margin-right: 4px;
+}
+.task .arms {
+  font-family: var(--font-label); font-size: var(--step--1); text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--muted); white-space: nowrap;
+}
+
+/* what the agent gets */
+.given { background: var(--surface-2); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.given h4 {
+  margin: 0; font-family: var(--font-label); font-size: var(--step--1); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+}
+.given dl { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.given .row { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 4px 12px; align-items: start; }
+.given dt {
+  font-family: var(--font-label); font-size: var(--step--1); font-weight: 600; color: var(--ink-2);
+  text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px;
+}
+.given dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.given dd p { margin: 0; }
+.given dd p + * { margin-top: 6px; }
+.given .prompt { font-size: var(--step-1); font-weight: 500; color: var(--ink); }
+.given .prompt::before { content: "\201C"; color: var(--muted); }
+.given .prompt::after { content: "\201D"; color: var(--muted); }
+.given q { font-style: italic; }
+.given .told { color: var(--ink); }
+.given .none-given { color: var(--muted); }
+.given .pending { margin: 0; color: var(--ink-2); }
+.later { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 2px; }
+.later li::marker { color: var(--muted); font-family: var(--font-mono); font-size: var(--step--1); }
+.later .more { list-style: none; margin-left: -20px; color: var(--muted); }
+.film { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+.film img { display: block; width: 100%; border-radius: 4px; background: #0d1015; }
+.film.picture { grid-template-columns: minmax(0, 1fr); max-width: 60%; }
+.frames { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 6px; align-items: start; }
+.frames:has(> .cam.main:only-child) { grid-template-columns: minmax(0, 1fr); }
+.frames:has(.wrists > .cam:only-child) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.wrists { display: flex; flex-direction: column; gap: 6px; }
+.cam { margin: 0; position: relative; min-width: 0; }
+.cam img { display: block; width: 100%; border-radius: 4px; background: #0d1015; }
+.cam figcaption {
+  position: absolute; left: 6px; bottom: 6px; padding: 1px 6px; border-radius: 3px;
+  background: rgb(13 16 21 / 0.72); color: #e7ebf0; font-size: 11px; font-family: var(--font-label);
+  letter-spacing: 0.03em;
+}
+
+/* the success */
+.clip { margin: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.clip video { display: block; width: 100%; max-width: 100%; border-radius: 6px; background: #0d1015; }
+.clip figcaption { font-size: var(--step--1); font-weight: 600; color: var(--ok); }
+.clip.missing figcaption { color: var(--muted); font-weight: 500; }
+.clip.hard { margin-top: 10px; }
+.clip .hard-said { margin: 0; font-size: var(--step--1); color: var(--muted); }
+.clip .none {
+  display: grid; place-items: center; aspect-ratio: 16 / 9; border-radius: 6px;
+  border: 1px dashed var(--rule); color: var(--muted); font-size: var(--step--1);
+}
+
+.task.todo { background: transparent; border-style: dashed; }
+.task.todo h3 { color: var(--ink-2); }
+.task.todo .summary { margin: 0; color: var(--ink-2); }
+.task.todo .state {
+  margin: 0; align-self: flex-start; font-size: var(--step--1); color: var(--muted);
+  font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.06em;
+}
+.credits {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rule);
+  color: var(--ink-2); font-size: var(--step--1);
+}
+.credits h2 {
+  margin: 0 0 4px; font-family: var(--font-label); font-size: var(--step-0); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink);
+}
+.credits p { margin: 0 0 8px; color: var(--muted); }
+.credits ul { margin: 0; padding: 0; list-style: none; columns: 2 360px; column-gap: 32px; }
+.credits li { break-inside: avoid; padding-block: 2px; overflow-wrap: anywhere; }
+.credits a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 2px; }
+.credits a:hover, .credits a:focus-visible { color: var(--ink); text-decoration-color: currentColor; }
+.credits .lic { margin-left: 8px; color: var(--muted); font-family: var(--font-mono); white-space: nowrap; }
+@media (max-width: 600px) {
+  .showcase { padding-inline: 16px; }
+  .given .row { grid-template-columns: minmax(0, 1fr); }
+  .frames { grid-template-columns: minmax(0, 1fr); }
+  .wrists { flex-direction: row; }
+}

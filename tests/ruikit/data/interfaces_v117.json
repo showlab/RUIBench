@@ -1,0 +1,2159 @@
+{
+ "open/v1": {
+  "id": "open/v1",
+  "title": "Open track",
+  "track": "open",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_point",
+   "vision_lift",
+   "robot_move_to",
+   "robot_move_delta",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "policy_run",
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "toolkit_list",
+   "toolkit_define"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_point",
+   "vision_lift",
+   "vision_pose",
+   "vision_marks",
+   "vision_track",
+   "robot_move_to",
+   "robot_move_delta",
+   "robot_step",
+   "robot_move_to_pixel",
+   "robot_waypoints",
+   "robot_chunk",
+   "robot_gripper",
+   "robot_home",
+   "robot_wait",
+   "robot_stop",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "policy_run",
+   "policy_propose",
+   "plan_ik",
+   "plan_grasps",
+   "plan_motion",
+   "model_decide",
+   "model_ask",
+   "model_imagine",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "task_events"
+  ],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "",
+  "plugins": [],
+  "_reproduces": "",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.code/v1": {
+  "id": "rui.code/v1",
+  "title": "RUIBench I4 · program",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "CaP-X code-as-policy over I2's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.code-delta/v1": {
+  "id": "rui.code-delta/v1",
+  "title": "RUIBench program · over the increment Dialect",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_delta",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "Code as Policies over rui.delta/v1's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.code-joint/v1": {
+  "id": "rui.code-joint/v1",
+  "title": "RUIBench program · over the joint Dialect",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "Code as Policies over rui.joint/v1's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.code-point/v1": {
+  "id": "rui.code-point/v1",
+  "title": "RUIBench program · over the pointing Dialect",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to_pixel",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "Code as Policies over rui.point/v1's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.code-skill/v1": {
+  "id": "rui.code-skill/v1",
+  "title": "RUIBench program · over the skills Dialect",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "Code as Policies over rui.skill/v1's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.code-step/v1": {
+  "id": "rui.code-step/v1",
+  "title": "RUIBench program · over the semantic step Dialect",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_step",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "robot_step": {
+    "micro_m": 0.0025,
+    "fine_m": 0.01,
+    "coarse_m": 0.04,
+    "micro_deg": 2.0,
+    "fine_deg": 5.0,
+    "coarse_deg": 15.0
+   }
+  },
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "Code as Policies over rui.step/v1's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.delta/v1": {
+  "id": "rui.delta/v1",
+  "title": "RUIBench increment · delta",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_delta",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "delta",
+  "plugins": [],
+  "_reproduces": "Embody's direct control / asimfish's Delta: the gripper moved by a vector",
+  "_differences": "the vector may be along the station's axes or the gripper's own (frame='tool')",
+  "_guide": ""
+ },
+ "rui.free/v1": {
+  "id": "rui.free/v1",
+  "title": "RUI-Free · any action",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_move_delta",
+   "robot_step",
+   "robot_move_to",
+   "robot_move_to_pixel",
+   "robot_gripper",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "code_run",
+   "robot_wait",
+   "robot_stop",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "task_give_up"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_move_delta",
+   "robot_step",
+   "robot_move_to",
+   "robot_move_to_pixel",
+   "robot_gripper",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "robot_wait",
+   "robot_stop",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "robot_step": {
+    "micro_m": 0.0025,
+    "fine_m": 0.01,
+    "coarse_m": 0.04,
+    "micro_deg": 2.0,
+    "fine_deg": 5.0,
+    "coarse_deg": 15.0
+   },
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "",
+  "plugins": [],
+  "_reproduces": "agents that choose how to act each time (Claude Code, Codex on a robot)",
+  "_differences": "the seven Dialects' moves side by side; code_run's programs may call all of them",
+  "_guide": ""
+ },
+ "rui.joint/v1": {
+  "id": "rui.joint/v1",
+  "title": "RUIBench joint · joints",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "joint",
+  "plugins": [],
+  "_reproduces": "joint targets, as Inspect Robots and yad-use offer them",
+  "_differences": "inverse kinematics is offered as a tool (robot_solve_ik): the robot's own, inside its joint limits",
+  "_guide": ""
+ },
+ "rui.point/v1": {
+  "id": "rui.point/v1",
+  "title": "RUIBench I3 · pointing",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to_pixel",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "point",
+  "plugins": [],
+  "_reproduces": "MOKA / PIVOT / Gemini-ER pointing, lifted by depth",
+  "_differences": "orientation given as rpy_deg next to the pixel, for every task alike",
+  "_guide": ""
+ },
+ "rui.pose/v1": {
+  "id": "rui.pose/v1",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "pose",
+  "plugins": [],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.skill/v1": {
+  "id": "rui.skill/v1",
+  "title": "RUIBench skills",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "skill",
+  "plugins": [],
+  "_reproduces": "SayCan / ROS-MCP: parameterised skills, each closed within itself",
+  "_differences": "each skill takes a frame-local object id, a pixel or a point, from the Core's perception",
+  "_guide": ""
+ },
+ "rui.step/v1": {
+  "id": "rui.step/v1",
+  "title": "RUIBench I1 · semantic step",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_step",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "each_step",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "robot_step": {
+    "micro_m": 0.0025,
+    "fine_m": 0.01,
+    "coarse_m": 0.04,
+    "micro_deg": 2.0,
+    "fine_deg": 5.0,
+    "coarse_deg": 15.0
+   }
+  },
+  "dialect": "step",
+  "plugins": [],
+  "_reproduces": "Show-Harness semantic action tokens (MV_*, ROTATE_*, GRASP, RELEASE)",
+  "_differences": "tokens are enum arguments of robot_step instead of JSON text; tilt and micro steps added; a step may repeat up to 5 times in one reply (extension)",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids": {
+  "id": "rui.pose/v1+aids",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.code/v1+aids": {
+  "id": "rui.code/v1+aids",
+  "title": "RUIBench I4 · program",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "task_give_up"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "program",
+  "plugins": [
+   "aids"
+  ],
+  "_reproduces": "CaP-X code-as-policy over I2's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.step/v1+aids": {
+  "id": "rui.step/v1+aids",
+  "title": "RUIBench I1 · semantic step",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_step",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "each_step",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "robot_step": {
+    "micro_m": 0.0025,
+    "fine_m": 0.01,
+    "coarse_m": 0.04,
+    "micro_deg": 2.0,
+    "fine_deg": 5.0,
+    "coarse_deg": 15.0
+   },
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "step",
+  "plugins": [
+   "aids"
+  ],
+  "_reproduces": "Show-Harness semantic action tokens (MV_*, ROTATE_*, GRASP, RELEASE)",
+  "_differences": "tokens are enum arguments of robot_step instead of JSON text; tilt and micro steps added; a step may repeat up to 5 times in one reply (extension)",
+  "_guide": ""
+ },
+ "rui.code-joint/v1+aids": {
+  "id": "rui.code-joint/v1+aids",
+  "title": "RUIBench program · over the joint Dialect",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "task_give_up"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "program",
+  "plugins": [
+   "aids"
+  ],
+  "_reproduces": "Code as Policies over rui.joint/v1's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.free/v1+pull": {
+  "id": "rui.free/v1+pull",
+  "title": "RUI-Free · any action",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_move_delta",
+   "robot_step",
+   "robot_move_to",
+   "robot_move_to_pixel",
+   "robot_gripper",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "code_run",
+   "robot_wait",
+   "robot_stop",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "task_give_up"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "robot_move_delta",
+   "robot_step",
+   "robot_move_to",
+   "robot_move_to_pixel",
+   "robot_gripper",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "robot_wait",
+   "robot_stop",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": null,
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "robot_step": {
+    "micro_m": 0.0025,
+    "fine_m": 0.01,
+    "coarse_m": 0.04,
+    "micro_deg": 2.0,
+    "fine_deg": 5.0,
+    "coarse_deg": 15.0
+   },
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "",
+  "plugins": [
+   "pull"
+  ],
+  "_reproduces": "agents that choose how to act each time (Claude Code, Codex on a robot)",
+  "_differences": "the seven Dialects' moves side by side; code_run's programs may call all of them",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids+pull": {
+  "id": "rui.pose/v1+aids+pull",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": null,
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids",
+   "pull"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids@privileged": {
+  "id": "rui.pose/v1+aids@privileged",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "privileged",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.code/v1+aids+guide": {
+  "id": "rui.code/v1+aids+guide",
+  "title": "RUIBench I4 · program",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "task_give_up"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "program",
+  "plugins": [
+   "aids",
+   "guide"
+  ],
+  "_reproduces": "CaP-X code-as-policy over I2's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": "manipulation"
+ },
+ "rui.pose/v1+aids-memory+memory:text": {
+  "id": "rui.pose/v1+aids-memory+memory:text",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up",
+   "memory_note",
+   "memory_recall"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids-memory",
+   "memory:text"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids-memory+memory:image": {
+  "id": "rui.pose/v1+aids-memory+memory:image",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up",
+   "memory_frames"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids-memory",
+   "memory:image"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids-marks": {
+  "id": "rui.pose/v1+aids-marks",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_point",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids-marks"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids-pointer": {
+  "id": "rui.pose/v1+aids-pointer",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids-pointer"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids-track": {
+  "id": "rui.pose/v1+aids-track",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids-track"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+aids-plan": {
+  "id": "rui.pose/v1+aids-plan",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_point",
+   "vision_track",
+   "task_give_up"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "aids-plan"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.pose/v1+marks:masks+memory:notes@owlv2-sam2,depth=mono,noise=2": {
+  "id": "rui.pose/v1+marks:masks+memory:text@owlv2-sam2,depth=mono,noise=2",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "vision_marks",
+   "memory_note",
+   "memory_recall"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "masks"
+   },
+   "perception": {
+    "backend": "owlv2-sam2",
+    "depth": "mono",
+    "noise": 2.0
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "marks:masks",
+   "memory:text"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.code/v1@sam3": {
+  "id": "rui.code/v1",
+  "title": "RUIBench I4 · program",
+  "track": "controlled",
+  "tools": [
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "channel": "code",
+  "hand_back": "program_end",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "perception": {
+    "backend": "sam3"
+   }
+  },
+  "dialect": "program",
+  "plugins": [],
+  "_reproduces": "CaP-X code-as-policy over I2's calls",
+  "_differences": "programs run online in a sandbox: each call acts on the live world",
+  "_guide": ""
+ },
+ "rui.delta/v1+motion": {
+  "id": "rui.delta/v1+motion",
+  "title": "RUIBench increment · delta",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_delta",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "robot_waypoints",
+   "robot_chunk",
+   "robot_home"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {},
+  "dialect": "delta",
+  "plugins": [
+   "motion"
+  ],
+  "_reproduces": "Embody's direct control / asimfish's Delta: the gripper moved by a vector",
+  "_differences": "the vector may be along the station's axes or the gripper's own (frame='tool')",
+  "_guide": ""
+ },
+ "open/v1+aids": {
+  "id": "open/v1+aids",
+  "title": "Open track",
+  "track": "open",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_point",
+   "vision_lift",
+   "robot_move_to",
+   "robot_move_delta",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "policy_run",
+   "code_run",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "toolkit_list",
+   "toolkit_define",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "memory_scene",
+   "vision_marks",
+   "vision_track",
+   "plan_grasps",
+   "plan_motion",
+   "plan_ik",
+   "task_give_up"
+  ],
+  "code_tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_point",
+   "vision_lift",
+   "vision_pose",
+   "vision_marks",
+   "vision_track",
+   "robot_move_to",
+   "robot_move_delta",
+   "robot_step",
+   "robot_move_to_pixel",
+   "robot_waypoints",
+   "robot_chunk",
+   "robot_gripper",
+   "robot_home",
+   "robot_wait",
+   "robot_stop",
+   "robot_solve_ik",
+   "robot_move_joints",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "policy_run",
+   "policy_propose",
+   "plan_ik",
+   "plan_grasps",
+   "plan_motion",
+   "model_decide",
+   "model_ask",
+   "model_imagine",
+   "memory_note",
+   "memory_recall",
+   "memory_frames",
+   "task_events"
+  ],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_marks": {
+    "style": "dots"
+   },
+   "vision_point": {
+    "impl": "detector"
+   },
+   "vision_track": {
+    "impl": "redetect"
+   },
+   "plan_grasps": {
+    "impl": "box"
+   },
+   "plan_motion": {
+    "impl": "lift"
+   }
+  },
+  "dialect": "",
+  "plugins": [
+   "aids"
+  ],
+  "_reproduces": "",
+  "_differences": "",
+  "_guide": ""
+ },
+ "rui.skill/v1@synthetic": {
+  "id": "rui.skill/v1@synthetic",
+  "title": "RUIBench skills",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "skill_pick",
+   "skill_place",
+   "skill_press",
+   "skill_push",
+   "skill_move",
+   "skill_turn",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "synthetic",
+  "params": {},
+  "dialect": "skill",
+  "plugins": [],
+  "_reproduces": "SayCan / ROS-MCP: parameterised skills, each closed within itself",
+  "_differences": "each skill takes a frame-local object id, a pixel or a point, from the Core's perception",
+  "_guide": ""
+ },
+ "rui.step/v1+ask:openai": {
+  "id": "rui.step/v1+ask",
+  "title": "RUIBench I1 · semantic step",
+  "track": "open",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_step",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "model_ask"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "each_step",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "robot_step": {
+    "micro_m": 0.0025,
+    "fine_m": 0.01,
+    "coarse_m": 0.04,
+    "micro_deg": 2.0,
+    "fine_deg": 5.0,
+    "coarse_deg": 15.0
+   },
+   "model_ask": {
+    "backend": "openai"
+   }
+  },
+  "dialect": "step",
+  "plugins": [
+   "ask"
+  ],
+  "_reproduces": "Show-Harness semantic action tokens (MV_*, ROTATE_*, GRASP, RELEASE)",
+  "_differences": "tokens are enum arguments of robot_step instead of JSON text; tilt and micro steps added; a step may repeat up to 5 times in one reply (extension)",
+  "_guide": ""
+ },
+ "rui.pose/v1+pointer:vlm/openai": {
+  "id": "rui.pose/v1+pointer:vlm/openai",
+  "title": "RUIBench I2 · pose",
+  "track": "controlled",
+  "tools": [
+   "camera_look",
+   "camera_zoom",
+   "robot_state",
+   "vision_detect",
+   "vision_segment",
+   "vision_lift",
+   "vision_pose",
+   "robot_move_to",
+   "robot_gripper",
+   "robot_wait",
+   "robot_stop",
+   "task_info",
+   "task_demo",
+   "task_events",
+   "task_done",
+   "vision_point"
+  ],
+  "code_tools": [],
+  "channel": "tools",
+  "hand_back": "when_done",
+  "push": {
+   "cameras": "all",
+   "history": 2,
+   "proprio": true,
+   "events": true
+  },
+  "docs": "default",
+  "perception": "model",
+  "params": {
+   "vision_point": {
+    "impl": "vlm",
+    "backend": "openai"
+   }
+  },
+  "dialect": "pose",
+  "plugins": [
+   "pointer:vlm/openai"
+  ],
+  "_reproduces": "Robocurve / Inspect Robots move_to (absolute gripper pose)",
+  "_differences": "",
+  "_guide": ""
+ }
+}

@@ -1,0 +1,363 @@
+# Asset catalogue: logical name -> USD on the Isaac asset server.
+#
+# HAND-MAINTAINED.  No tool writes this file: verification results and measured
+# geometry go to assets.lock.json next to it.
+#
+# `{NUCLEUS}` expands to the resolved asset root (Isaac Sim's
+# `/persistent/isaac/asset_root/cloud`, or RUIBENCH_ISAAC_NUCLEUS for a local
+# mirror), with `/Isaac` appended -- the same layout Isaac Lab uses.
+#
+# physics: builtin -- the USD ships with a rigid body and colliders.
+# physics: added   -- the USD is visual only (most of Isaac's YCB props are);
+#                     RUIBench applies a rigid body and colliders at spawn time.
+# collision: hull          -- convex hull, for solid things.
+# collision: decomposition -- convex decomposition, for hollow things.  A hull
+#                     fills a bowl in, and "the ball is in the bowl" would then
+#                     be false while it looks true.
+# footprint: round -- seen from above it is a disc; containment is tested
+#                     against a circle.  Default is a rectangle.
+# up: y            -- the USD is authored Y-up (every Isaac YCB prop is: the
+#                     soup can's 10.2 cm height lies along y).  The engine stands
+#                     it up at spawn and turns that back out when it reports
+#                     poses, so task code always sees "standing = identity".
+#                     Which way is up is a fact about the asset, not something a
+#                     heuristic can infer: "lowest orientation" lays a can down.
+#
+# Measured geometry -- half extents in the upright frame, and whether an 8 cm
+# parallel gripper can close across the object -- is in assets.lock.json,
+# written by `python -m ruibench.engines.isaac.checks geometry`.
+#
+# Only what a task shows is listed (v16 dropped 52 entries no task used, the
+# first props among them: Isaac's YCB cans and boxes, the KLT bin, the cabinet).
+version: 4
+assets:
+  # -- the table a scene gets by default (every task builds its station
+  # table from primitives instead) ----------------------------------------
+  table:       {usd: "{NUCLEUS}/Props/Mounts/SeattleLabTable/table_instanceable.usd", category: table}
+
+  # -- v2: real things from outside the Isaac server ------------------------
+  # Made ready by `python -m ruibench.engines.isaac.prepare` (engines/isaac/prepare.py):
+  # fetched once, converted, wrapped so the body's pose is the middle of its
+  # bounding box, z up, at its real size.  `rotate` turns the source (degrees
+  # about x, y, z); `size` is the longest side after turning.
+
+  # DS2: two grocery boxes
+  crackers:
+    source: gso:VANS_FIRE_ROASTED_VEGGIE_CRACKERS_GLUTEN_FREE
+    category: box
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), VANS_FIRE_ROASTED_VEGGIE_CRACKERS_GLUTEN_FREE"
+  cheez_it:
+    source: "nucleus:{NUCLEUS}/Props/YCB/Axis_Aligned/003_cracker_box.usd"
+    category: box
+    rotate: [90, 0, 0]          # YCB props are authored y-up
+    licence: CC-BY-4.0             # YCB, via the Isaac Sim asset server
+    attribution: "YCB Object and Model Set, 003_cracker_box"
+
+  # DS2 v10: a rattan basket woven in red, orange and maroon (its lid left
+  # off) -- the wicker one was one more brown thing on a brown table
+  rattan_basket:
+    source: objaverse:000-134/cce169a845e94d1ca3f03129a32b3bfd
+    part: "node:pCylinder1_lambert6_0"   # the basket without its lid and knob
+    bake: true                  # the node's scale, not flat (``AssetEntry.bake``)
+    rotate: [90, 0, 0]          # a part comes out y-up
+    category: basket
+    size: 0.18
+    collision: decomposition
+    footprint: round
+    licence: CC-BY-4.0
+    attribution: "\"SOUVENIR RATTAN BASKET (13)\" by eeelabvisual, https://sketchfab.com/3d-models/cce169a845e94d1ca3f03129a32b3bfd"
+
+  # WK2: toy-scale farm animals and a cabbage (Sketchfab via Objaverse, CC-BY),
+  # and a little wooden bucket
+  # WK2 v2 revision (2026-09-18): standing side-on to the camera, grey and
+  # white so the two animals read apart at a glance
+  wolf_grey:
+    # not an animated model: a skinned mesh renders in its skeleton's pose,
+    # lying down, while its collider is the unposed mesh (both wolves before)
+    source: objaverse:000-105/a2832b845e4e4edd9d439342cf4fd590
+    category: wolf
+    rotate: [0, 180, 0]         # converted upside down: turn it over along its body
+    size: 0.11
+    licence: CC-BY-4.0
+    attribution: "\"Gray Wolf\" by hamidkhan224, https://sketchfab.com/3d-models/a2832b845e4e4edd9d439342cf4fd590"
+  goat_white:
+    source: objaverse:000-021/b1fb5b82ab694a8e8316693fa9fb37c4
+    category: goat
+    rotate: [0, 180, 0]         # converted upside down: turn it over along its body
+    size: 0.10
+    licence: CC-BY-4.0
+    attribution: "\"goat\" by gashtan, https://sketchfab.com/3d-models/b1fb5b82ab694a8e8316693fa9fb37c4"
+  cabbage:
+    source: objaverse:000-077/654306fc3ae344c7b9e7a9a40faca45b
+    category: cabbage
+    size: 0.065
+    footprint: round
+    licence: CC-BY-4.0
+    attribution: "\"Cabbage\" by Meerschaum Digital, https://sketchfab.com/3d-models/cabbage-654306fc3ae344c7b9e7a9a40faca45b"
+  bucket_small:
+    source: polyhaven:wooden_bucket_01
+    category: bucket
+    size: 0.065
+    footprint: round
+    licence: CC0-1.0
+    attribution: "Poly Haven, https://polyhaven.com/a/wooden_bucket_01"
+
+  # DI2: a small plush bear, lying on its back as it was scanned
+  teddy_small:
+    source: gso:Lovable_Huggable_Cuddly_Boutique_Teddy_Bear_Beige
+    category: teddy bear
+    size: 0.075
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), Lovable_Huggable_Cuddly_Boutique_Teddy_Bear_Beige"
+
+  # DI2, DI3: a small rubber duck (under 7 cm across one way: the Franka's grip)
+  duck_small:
+    source: polyhaven:rubber_duck_toy
+    category: duck
+    size: 0.07
+    licence: CC0-1.0
+    attribution: "Poly Haven, https://polyhaven.com/a/rubber_duck_toy"
+
+  # DI4 v9 (9/24): toys a child names at a glance -- the duck, the apple and
+  # the dinosaur were too plain.  A wooden toy airplane with its pilot
+  # (scanned; v11 -- a teddy, plush, stood apart from the other two), a tin
+  # wind-up robot with its key, a wooden fire engine (scanned); the hard
+  # level's painted top is turned from parts (``di4_simon_says.top_body``)
+  toy_airplane:
+    source: gso:TURBOPROP_AIRPLANE_WITH_PILOT
+    category: airplane
+    size: 0.12                  # 9 cm as scanned, small beside the robot and the truck
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), TURBOPROP_AIRPLANE_WITH_PILOT"
+  tin_robot:
+    source: objaverse:000-081/ea2ac2deec06472a91a2a011cf821ea3
+    category: robot
+    rotate: [180, 0, 0]         # converted upside down
+    size: 0.13
+    licence: CC-BY-4.0
+    attribution: "\"Toy Robot WIP Textures by Ryley Burnett\" by Ryley Burnett, https://sketchfab.com/3d-models/ea2ac2deec06472a91a2a011cf821ea3"
+  fire_engine:
+    source: gso:FIRE_ENGINE
+    category: fire_engine
+    size: 0.16
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), FIRE_ENGINE"
+
+  # CL2 v2 revision (2026-09-18): wooden dolls lying on their backs, a doll's
+  # bed and a sofa.  The dolls come out of two family sets scanned together,
+  # each doll whole (``figure:K``: a head only rests on its body), at 9 cm
+  # -- dollhouse scale, and their hands no wider apart than the gripper opens
+  doll_family_0:
+    source: gso:DOLL_FAMILY
+    part: "figure:0"
+    category: doll
+    rotate: [-90, 0, 0]       # on its back, face up
+    size: 0.09
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), DOLL_FAMILY"
+  doll_family_1:
+    source: gso:DOLL_FAMILY
+    part: "figure:1"
+    category: doll
+    rotate: [-90, 0, 0]       # on its back, face up
+    size: 0.09
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), DOLL_FAMILY"
+  doll_family_3:
+    source: gso:DOLL_FAMILY
+    part: "figure:3"
+    category: doll
+    rotate: [-90, 0, 0]       # on its back, face up
+    size: 0.09
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), DOLL_FAMILY"
+  doll_modern_0:
+    source: gso:MODERN_DOLL_FAMILY
+    part: "figure:0"
+    category: doll
+    rotate: [-90, 0, 0]       # on its back, face up
+    size: 0.09
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), MODERN_DOLL_FAMILY"
+  doll_modern_1:
+    source: gso:MODERN_DOLL_FAMILY
+    part: "figure:1"
+    category: doll
+    rotate: [-90, 0, 0]       # on its back, face up
+    size: 0.09
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), MODERN_DOLL_FAMILY"
+  doll_modern_3:
+    source: gso:MODERN_DOLL_FAMILY
+    part: "figure:3"
+    category: doll
+    rotate: [-90, 0, 0]       # on its back, face up
+    size: 0.09
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), MODERN_DOLL_FAMILY"
+  doll_bed:
+    source: gso:BEDROOM_CLASSIC
+    part: "component:0"
+    category: bed
+    collision: decomposition
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), BEDROOM_CLASSIC"
+  doll_sofa:
+    source: gso:3D_Dollhouse_Sofa
+    part: "component:0"
+    category: sofa
+    collision: decomposition
+    licence: CC-BY-4.0
+    attribution: "Google Scanned Objects (Google LLC), 3D_Dollhouse_Sofa"
+
+  # v3 (2026-09-19) looks for toys built from primitives: each is drawn over
+  # the toy's hidden colliders (``parts.visual``), so the physics stays exact.
+  # Picked from runs/assets_v3 (research/assets_v3_*.py), licence-clean.
+  bunsen_burner_cc0:            # DS6, the CC0 choice: the chemistry set's own burner, 11 cm tall
+    source: polyhaven:chemistry_set
+    part: /chemistry_set/chemistry_set_bunsen_burner
+    category: Bunsen burner
+    size: 0.11
+    footprint: round
+    licence: CC0-1.0
+    attribution: "\"Chemistry Set\" by Jiří Ptáček, Poly Haven (CC0)"
+  # DS3 (v6, 9/22): the sand pail the coin goes into -- the same bucket as
+  # WK2's, bigger and hollow (a hull would be solid, and the coin rolled off
+  # its rim on Isaac)
+  sand_pail:
+    source: polyhaven:wooden_bucket_01
+    category: bucket
+    size: 0.13
+    collision: decomposition
+    footprint: round
+    licence: CC0-1.0
+    attribution: "Poly Haven, https://polyhaven.com/a/wooden_bucket_01"
+  # DS3 (v6, 9/22): scallop shells lying on a sandbox -- drawn over hidden
+  # colliders (a low cage the coin fits under), so only their looks count here
+  scallop_brown:
+    source: objaverse:000-116/1ec6b6d013c5439bb9dc3002788d9921
+    rotate: [90, 0, 0]
+    category: seashell
+    size: 0.065
+    licence: CC-BY-4.0
+    attribution: "\"Scallop Shell\" by RISD Nature Lab, https://sketchfab.com/3d-models/1ec6b6d013c5439bb9dc3002788d9921"
+  scallop_sea:
+    source: objaverse:000-020/26563b2166ce49d6a80b77d02983357d
+    rotate: [90, 0, 0]
+    category: seashell
+    size: 0.065
+    licence: CC-BY-4.0
+    attribution: "\"Sea Scallop Shell\" by Tyler Jackson, https://sketchfab.com/3d-models/26563b2166ce49d6a80b77d02983357d"
+  # CL6 (v6, 9/22): Poly Haven's marble chess set, at its own (tournament)
+  # size -- 5.79 cm squares, the king 9.5 cm.  One part per piece kind; a set's
+  # parts share one textures folder, so each names its own maps
+  chess_board:
+    source: polyhaven:chess_set
+    part: /chess_set/board
+    maps: board
+    category: chess board
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+  chess_knight_white:
+    source: polyhaven:chess_set
+    part: /chess_set/piece_knight_white_01
+    maps: pieces_white
+    category: chess knight
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+  chess_king_white:
+    source: polyhaven:chess_set
+    part: /chess_set/piece_king_white
+    maps: pieces_white
+    category: chess king
+    footprint: round
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+  chess_king_black:
+    source: polyhaven:chess_set
+    part: /chess_set/piece_king_black
+    maps: pieces_black
+    category: chess king
+    footprint: round
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+  chess_pawn_white:
+    source: polyhaven:chess_set
+    part: /chess_set/piece_pawn_white_01
+    maps: pieces_white
+    category: chess pawn
+    footprint: round
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+  chess_pawn_black:
+    source: polyhaven:chess_set
+    part: /chess_set/piece_pawn_black_01
+    maps: pieces_black
+    category: chess pawn
+    footprint: round
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+  chess_rook_black:
+    source: polyhaven:chess_set
+    part: /chess_set/piece_rook_black_01
+    maps: pieces_black
+    category: chess rook
+    footprint: round
+    licence: CC0-1.0
+    attribution: "\"Chess Set\" by Riley Queen, Poly Haven (CC0)"
+
+  # -- v8 (9/24): real things where the advisor found the look toy-like -----
+  # Licences checked on the Sketchfab API (9/23-24) and on Poly Haven / GSO.
+  # CL4 v10: a cork stopper, the thing that floats in its second film (a white
+  # block did not read as foam)
+  cork_stopper:
+    source: objaverse:000-058/00beb4f7241e496e8a2ebb47fdb4f93c
+    part: "node:Cork_Bouchon_0"   # the "Glass Bottle"'s cork alone
+    rotate: [90, 0, 0]          # a part comes out y-up
+    category: cork
+    size: 0.044                 # 3.6 cm across: at 3.3 the hand hid 62% of it from the fixed camera
+    footprint: round
+    licence: CC-BY-4.0
+    attribution: "\"Glass Bottle\" by Aullwen, https://sketchfab.com/3d-models/00beb4f7241e496e8a2ebb47fdb4f93c"
+  # CL4: the crow's pebbles -- photoscanned river stones over hidden cores
+  river_rock:
+    source: objaverse:000-106/e563bcf9d31146ed8a1bf4f61f083a00
+    rotate: [90, 0, 90]         # scanned standing on end: laid down, long along x, its flat side under it
+    category: pebble
+    size: 0.062
+    licence: CC-BY-4.0
+    attribution: "\"blueish river rock\" by Robob3ar, https://sketchfab.com/3d-models/e563bcf9d31146ed8a1bf4f61f083a00"
+  sea_pebble:
+    source: objaverse:000-150/72a33024835845e38e6d22fe9e03547a
+    rotate: [0, 0, 90]          # long along x, as the river rock
+    category: pebble
+    size: 0.056
+    licence: CC-BY-4.0
+    attribution: "\"KATSU 'Sea pebble'\" by katsu_stones, https://sketchfab.com/3d-models/72a33024835845e38e6d22fe9e03547a"
+  # DS2: a painted egg (v10: its pots are glazed stoneware turned from parts,
+  # ``ds2_egg_hunt.pot``)
+  easter_egg:
+    source: objaverse:000-034/94f34031cb3141eb88a1f7f9be309213
+    rotate: [0, 90, 0]          # scanned standing: laid on its side, long along x
+    category: egg
+    size: 0.056
+    licence: CC0-1.0
+    attribution: "\"Hutsul Easter egg from Kosmach\" by Virtual Museums of Malopolska (CC0), https://sketchfab.com/3d-models/94f34031cb3141eb88a1f7f9be309213"
+  # DI6: the little cake under a cloche -- a scanned raspberry tartlet
+  raspberry_tart:
+    source: objaverse:000-039/c01b7abbedfa4e49bd25f14c4b2a756a
+    category: cake
+    size: 0.064
+    footprint: round
+    licence: CC-BY-4.0
+    attribution: "\"Cake #1 - Maison Alyzee\" by Emm, https://sketchfab.com/3d-models/c01b7abbedfa4e49bd25f14c4b2a756a"
+
+# Deliberately built from primitives rather than meshes, with the reason.
+# `ruibench validate` treats these as satisfied: a primitive is not a missing
+# asset, it is a chosen one.
+primitives:
+  plate: "Isaac's YCB subset ships no 029_plate; a shallow cylinder stands in. It has no rim -- remember that when reading Fine-Grained placement results."
+  ball: "Isaac's YCB subset ships no ball; a sphere primitive is geometrically exact and shades photorealistically."
+  stove: "a flat plate-sized surface, distinguished from the plate by colour and position (DI4)."
+  basket: "an open bin of five boxes (20 x 30 x 8 cm, 1 cm walls). Isaac's KLT bin has a collision scope authored ~100x too large, and sorting by colour needs bins that can be coloured."

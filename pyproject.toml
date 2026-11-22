@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ruibench"
+version = "1.0.0"
+description = "RUIBench and RUIKit: what makes a good Robot-Use Interface"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "The RUIBench Authors"}]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# The core deliberately has almost no dependencies: task cards, scoring,
+# validation and reports must run on any machine, including one with no GPU.
+dependencies = ["pyyaml>=5.4"]
+
+[project.optional-dependencies]
+# the tests; scipy and OpenCV for the grasp planner's and the tracker's other implementations
+dev = ["pytest>=7", "matplotlib>=3.5", "numpy>=1.22,<2", "scipy", "opencv-python-headless>=4.8,<4.12"]
+# RUIKit's extras outside the design space (ruikit/extras): their model backends
+extras = ["httpx"]
+# The results engine. Installed separately -- see `ruibench doctor --hint`.
+# warp-lang must match the warp Kit bundles (1.5.0 for Isaac Sim 4.5): two warp
+# native libraries in one process corrupt the heap intermittently.
+isaac = ["warp-lang==1.5.0", "h5py", "requests", "scipy", "opencv-python-headless>=4.8,<4.12"]
+# The real station (ruibench/engines/franka): the robot's ZeroRPC server, the
+# RealSense cameras and the operator's window.  NumPy 1, as in simulation: under 2 a
+# number worked out from perception's float32 stays one, which the agent is shown as
+# np.float32(0.5) and a log cannot write.  So OpenCV before 4.12, which needs NumPy 2.
+# The Hub keeps the rollouts (ruikit/experiments/real_upload.py).
+real = ["numpy>=1.22,<2", "pillow", "scipy", "zerorpc", "pyrealsense2", "pygame>=2.5",
+        "opencv-python-headless>=4.8,<4.12", "huggingface_hub"]
+
+[project.urls]
+Homepage = "https://showlab.github.io/RUIBench/"
+Repository = "https://github.com/showlab/RUIBench"
+Documentation = "https://github.com/showlab/RUIBench/tree/main/docs"
+
+[project.scripts]
+ruibench = "ruibench.cli:main"
+ruikit = "ruikit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ruibench*", "ruikit*"]
+
+[tool.setuptools.package-data]
+ruibench = ["tasks/cards/*.yaml", "tasks/splits.json", "tasks/frozen.json", "engines/isaac/*.yaml",
+            "engines/isaac/*.json", "engines/franka/*.yaml", "engines/franka/*.json",
+            "engines/franka/*.patch", "tasks/real/*.yaml", "tasks/real/cards/*", "reports/static/*"]
+ruikit = ["configs/*.yaml", "configs/experiments/*.yaml", "configs/guides/*.md",
+          "report/static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

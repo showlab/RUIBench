@@ -1,0 +1,90 @@
+--- franka_hand_client.cpp.orig	2025-10-06 21:20:33.776155373 +0800
++++ franka_hand_client.cpp	2026-11-03 17:30:29.867979463 +0800
+@@ -5,6 +5,7 @@
+ #include <thread>
+ #include <time.h>
+ 
++#include <franka/exception.h>
+ #include <grpc/grpc.h>
+ 
+ #include "polymetis.grpc.pb.h"
+@@ -39,7 +40,15 @@
+ }
+ 
+ void FrankaHandClient::getGripperState(void) {
+-  franka::GripperState franka_gripper_state = gripper_->readOnce();
++  franka::GripperState franka_gripper_state;
++  try {
++    franka_gripper_state = gripper_->readOnce();
++  } catch (const franka::Exception &e) {
++    // No state for a moment (UDP receive: Timeout) must not end the client:
++    // keep the last state and read again.
++    spdlog::warn("Gripper state not read: {}", e.what());
++    return;
++  }
+ 
+   gripper_state_.set_width(franka_gripper_state.width);
+   gripper_state_.set_is_grasped(franka_gripper_state.is_grasped);
+@@ -51,26 +60,31 @@
+ }
+ 
+ void FrankaHandClient::applyGripperCommand(void) {
+-  is_moving_ = true;
+-
+-  if (gripper_cmd_.grasp()) {
+-    spdlog::info("Grasping at width {} at speed={}", gripper_cmd_.width(),
+-                 gripper_cmd_.speed());
+-    double eps_inner = (gripper_cmd_.epsilon_inner() < 0)
+-                           ? EPSILON_INNER
+-                           : gripper_cmd_.epsilon_inner();
+-    double eps_outer = (gripper_cmd_.epsilon_outer() < 0)
+-                           ? EPSILON_OUTER
+-                           : gripper_cmd_.epsilon_outer();
+-    prev_cmd_successful_ =
+-        gripper_->grasp(gripper_cmd_.width(), gripper_cmd_.speed(),
+-                        gripper_cmd_.force(), eps_inner, eps_outer);
+-
+-  } else {
+-    spdlog::info("Moving to width {} at speed={}", gripper_cmd_.width(),
+-                 gripper_cmd_.speed());
+-    prev_cmd_successful_ =
+-        gripper_->move(gripper_cmd_.width(), gripper_cmd_.speed());
++  // This runs in a detached thread: an exception left uncaught here ends the
++  // whole client (SIGABRT). A failed command is reported, not fatal.
++  try {
++    if (gripper_cmd_.grasp()) {
++      spdlog::info("Grasping at width {} at speed={}", gripper_cmd_.width(),
++                   gripper_cmd_.speed());
++      double eps_inner = (gripper_cmd_.epsilon_inner() < 0)
++                             ? EPSILON_INNER
++                             : gripper_cmd_.epsilon_inner();
++      double eps_outer = (gripper_cmd_.epsilon_outer() < 0)
++                             ? EPSILON_OUTER
++                             : gripper_cmd_.epsilon_outer();
++      prev_cmd_successful_ =
++          gripper_->grasp(gripper_cmd_.width(), gripper_cmd_.speed(),
++                          gripper_cmd_.force(), eps_inner, eps_outer);
++
++    } else {
++      spdlog::info("Moving to width {} at speed={}", gripper_cmd_.width(),
++                   gripper_cmd_.speed());
++      prev_cmd_successful_ =
++          gripper_->move(gripper_cmd_.width(), gripper_cmd_.speed());
++    }
++  } catch (const franka::Exception &e) {
++    spdlog::error("Gripper command failed: {}", e.what());
++    prev_cmd_successful_ = false;
+   }
+ 
+   is_moving_ = false;
+@@ -95,7 +109,9 @@
+       // Skip if command not updated
+       timestamp_ns = gripper_cmd_.timestamp().nanos();
+       if (timestamp_ns != prev_cmd_timestamp_ns_ && timestamp_ns) {
+-        // applyGripperCommand() in separate thread
++        // applyGripperCommand() in separate thread; marked here so that a newer
++        // command cannot start beside it before the thread has begun
++        is_moving_ = true;
+         std::thread th(&FrankaHandClient::applyGripperCommand, this);
+         th.detach();
+         prev_cmd_timestamp_ns_ = timestamp_ns;

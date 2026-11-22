@@ -1,0 +1,98 @@
+# The paper's simulation experiments, as a plan for the batch runner:
+#
+#   ruikit run --plan paper --dry-run                   # every episode it asks for
+#   ruikit run --plan paper --experiment rui --agent claude-code --model claude-opus-5-5
+#                                                       # the part with these settings, into runs/paper
+#   ruikit run --plan paper --report                    # the tables so far
+#
+# A part is chosen with --experiment, --agent, --model, --form (per-action, program,
+# free), --abstraction (joint ... skill), --perception (pixels, privileged),
+# --interface (the paper's names: pose, program-skill, rui-free), --task (ids, suites,
+# all), --level and --clock.
+#
+# A row is an agent -- a Harness and a model -- under one condition; a column is an
+# interface. Every cell runs the 30 tasks on the easy level, one episode each, on the
+# first test seed (15; the test missions are seeds 15-34), so episodes pair across
+# rows. A cell asked for twice runs once.
+#
+# The models are the paper's; to run another, give it with --model or edit a row.
+# The small open model's runs (Qwen3.5-4B, zero-shot and fine-tuned) go through the
+# minimal loop: --agent minimal-loop --model local:<served name> (docs/ruikit/experiments.md).
+defaults:
+  tasks: all
+  levels: [easy]
+  seeds: test:1
+  clock: 8s            # each reply counts as 8 s of thinking: the arm holds still, the scene goes on
+  record: true         # film every episode: video.mp4 beside its result.json; filming changes the
+                       # pictures an agent is shown, so every episode is filmed alike
+
+interface_sets:
+  # the 12 fixed RUIs: six action abstractions x two interaction forms, each with the aids
+  twelve: [joint, delta, step, pose, point, skill,
+           program-joint, program-delta, program-step, program-pose, program-point, program-skill]
+
+experiments:
+  rui:
+    title: "What makes a good RUI: Claude Code and Codex on the 13 interfaces (Table 3)"
+    note: "both at high reasoning effort; the tasks in turn across the suites"
+    tasks: [WK1, CL1, DS1, DI1, CR1, WK2, CL2, DS2, DI2, CR2, WK3, CL3, DS3, DI3, CR3,
+            WK4, CL4, DS4, DI4, CR4, WK5, CL5, DS5, DI5, CR5, WK6, CL6, DS6, DI6, CR6]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+      - {harness: codex, model: gpt-6-astra}
+    interfaces: [twelve, rui-free]
+
+  rui-seed2:
+    title: "The second test seed: each suite's first two and last two tasks"
+    note: "how much a result moves with the seed: rui's cells on the next test seed"
+    seeds: "16"
+    tasks: [WK1, CL1, DS1, DI1, CR1, WK2, CL2, DS2, DI2, CR2,
+            WK5, CL5, DS5, DI5, CR5, WK6, CL6, DS6, DI6, CR6]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+    interfaces: [twelve, rui-free]
+
+  rui-seq:
+    title: "Decision compression: the action-sequence variant (Table 2, interaction form)"
+    note: "several actions a reply with nothing seen in between, over Delta, Step and Point; paired with rui's per-action and program cells of the same abstractions; Claude Code"
+    tasks: [WK1, CL1, DS1, DI1, CR1, WK2, CL2, DS2, DI2, CR2, WK3, CL3, DS3, DI3, CR3,
+            WK4, CL4, DS4, DI4, CR4, WK5, CL5, DS5, DI5, CR5, WK6, CL6, DS6, DI6, CR6]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+    interfaces: [sequence-delta, sequence-step, sequence-point]
+
+  rui-seq-control:
+    title: "A same-day control for rui-seq: the per-action and program cells again, on twelve tasks"
+    note: "rui-seq ran on a later version and day than rui; these cells show whether rui's still hold"
+    tasks: [WK1, WK5, CL2, CL4, DS1, DS4, DI1, DI2, CR5, CR6, CR2, DS5]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+    interfaces: [delta, step, point, program-delta, program-step, program-point]
+
+  rui-seq-seeds:
+    title: "rui-seq on the other four test seeds"
+    note: "with rui-seq's seed 15, the five test seeds 15-19"
+    seeds: "16-19"
+    tasks: [WK1, CL1, DS1, DI1, CR1, WK2, CL2, DS2, DI2, CR2, WK3, CL3, DS3, DI3, CR3,
+            WK4, CL4, DS4, DI4, CR4, WK5, CL5, DS5, DI5, CR5, WK6, CL6, DS6, DI6, CR6]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+    interfaces: [sequence-delta, sequence-step, sequence-point]
+
+  check-report:
+    title: "Action-level checks: the skills report a failed pick or place (Table 2)"
+    note: "after a pick, whether the thing came with the gripper; after a place, whether it lies on the target -- from the cameras' depth and the fingers only; paired with rui's skill and program-skill cells; Claude Code"
+    tasks: [WK1, CL1, DS1, DI1, CR1, WK2, CL2, DS2, DI2, CR2, WK3, CL3, DS3, DI3, CR3,
+            WK4, CL4, DS4, DI4, CR4, WK5, CL5, DS5, DI5, CR5, WK6, CL6, DS6, DI6, CR6]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+    interfaces: [rui.skill/v1+aids+check, rui.code-skill/v1+aids+check]
+
+  check-correct:
+    title: "Action-level checks: the skills report and correct a failed pick or place once (Table 2)"
+    note: "as check-report, and the skill corrects itself once with no new decision of the agent's"
+    tasks: [WK1, CL1, DS1, DI1, CR1, WK2, CL2, DS2, DI2, CR2, WK3, CL3, DS3, DI3, CR3,
+            WK4, CL4, DS4, DI4, CR4, WK5, CL5, DS5, DI5, CR5, WK6, CL6, DS6, DI6, CR6]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+    interfaces: [rui.skill/v1+aids+check:correct, rui.code-skill/v1+aids+check:correct]

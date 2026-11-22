@@ -1,0 +1,81 @@
+# The lab's real station: how the robot and its cameras are reached, where the
+# arm starts, and the limits it moves within.  Site-specific by definition.
+# Where the cameras and the table are is the calibration (calibration.json),
+# written by:   python -m ruibench.engines.franka.calibrate
+#
+# Positions are in the station frame every tool speaks: origin on the table top
+# under the robot base, x forward, y left, z up, metres.
+
+nuc:
+  host: 172.16.0.2               # your robot PC's address (its single_arm_server.py); set it here
+  port: 4242                     # RUIBENCH_FRANKA_NUC=<host>[:<port>] overrides both
+
+cameras:
+  # the scene's camera name -> the RealSense that is it.  The raw stream is
+  # rectified to the robot model's lens (engines/franka/model.py)
+  agentview: {serial: "327122079691", width: 640, height: 480, fps: 30}   # D435, upper mount, across the table
+  wrist: {serial: "218622273043", width: 640, height: 480, fps: 30}       # D405 on the hand
+  # not used: the D435 on the lower mount, 317222075319
+
+motion:
+  control_hz: 50                 # setpoints streamed to the impedance controller
+  # bring-up speeds; the simulator's shared controller moves at 0.25 m/s and
+  # 1.5 rad/s, and goes home at 1.2 rad/s a joint (engines/isaac/engine.py)
+  max_speed_m_s: 0.15
+  max_turn_rad_s: 0.6
+  # going down to below this height of the flange (the base's; the tool centre point is 10 cm
+  # under it, so about 18 cm over the table), no faster than this: what the hand meets, it
+  # meets with less behind it, and the rest of the arm's way is as fast as ever
+  descent_speed_m_s: 0.08
+  descent_below_m: 0.30
+  # no joint faster than this in any move: a straight line of the hand that would
+  # need it is slowed for it, by max_slowdown at most, and to max_move_seconds at
+  # most (shorter than the executor's 20 s); past those it stops short
+  # (engines/franka/route.py).  The server's limits: 2.075 rad/s, soft from 1.575
+  joint_speed_rad_s: 0.6
+  min_move_seconds: 0.4
+  max_slowdown: 4.0
+  max_move_seconds: 15.0
+  # Polymetis' Cartesian impedance (its franka_hardware defaults)
+  stiffness: [750.0, 750.0, 750.0, 15.0, 15.0, 15.0]
+  damping: [37.0, 37.0, 37.0, 2.0, 2.0, 2.0]
+  # what is left between the setpoint and the hand at rest is closed by moving
+  # the setpoint, at this rate (1/s) and never further than this: against the
+  # table or a held thing it pushes at most stiffness x limit (7.5 N)
+  settle_gain: 3.0
+  settle_limit_m: 0.01
+  settle_limit_rad: 0.05
+  # what the control thread watches.  The hand this far from its setpoint: something
+  # holds it, or a reflex stopped it, and the arm holds where it is, pushing no more than
+  # stiffness x that (28 N at full speed; the robot's own reflex is at 40).  In motion the arm
+  # trails its setpoint by what Polymetis' joint damping makes of its speed: at most 28 mm
+  # in 38,000 ticks of free moves (2026-11-03), at full speed.  With follow_lag_s at 0.25 a
+  # hand stopped by a block let its setpoint run 51 mm ahead, and the reflex came first.  A
+  # joint this fast: no move asks for it, and the arm holds and faults
+  follow_limit_m: 0.03
+  follow_lag_s: 0.05
+  follow_limit_rad: 0.3
+  joint_speed_limit_rad_s: 1.2
+
+workspace:
+  # the tool centre point stays inside this box; a move beyond it stops at its
+  # edge, as one blocked by something would
+  x: [0.15, 0.80]
+  y: [-0.45, 0.45]
+  z: [0.008, 0.60]               # 0.008: the fingertips on the table, no further
+  # the tool's axis at most this far from pointing straight down
+  max_tilt_deg: 100.0
+
+gripper:
+  open_width_m: 0.08
+  # a command is done when the fingers have stopped: a width that has moved
+  # since the command and then held within stable_m for stable_s, not before
+  # min_s, and in any case by max_s (the Franka Hand reports its width late)
+  stable_m: 0.0005
+  stable_s: 0.3
+  min_s: 0.4
+  max_s: 3.0
+  # closing on something: libfranka's own example takes 0.1 m/s and 60 N.  The server's old
+  # call closes at 0.5 m/s, and on rigid things the fingers stopped at contact without a grip
+  grasp_speed_m_s: 0.05
+  grasp_force_n: 60.0

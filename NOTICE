@@ -1,0 +1,17 @@
+RUIBench
+Copyright 2026 The RUIBench Authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It does not include third-party code or assets.  At install time it fetches,
+under their own licences:
+
+* NVIDIA Isaac Sim and Isaac Lab (NVIDIA's terms; Isaac Lab is BSD-3-Clause),
+  and assets streamed from NVIDIA's asset server, including the Franka FR3
+  and the Simple Room environment;
+* the ARX X5 robot description (BSD-3-Clause, ARX Robotics);
+* scanned objects, textures and HDR images under CC0 or CC-BY 4.0, each
+  credited in CREDITS.md.
+
+The two-arm station reproduces the layout and camera of RoboDojo's ARX X5
+station; none of RoboDojo's assets are used.

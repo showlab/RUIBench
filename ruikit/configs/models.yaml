@@ -1,0 +1,48 @@
+# The model channels: where a model is reached, under which name, and in which
+# request format.  A model is named ``<channel>:<name>`` (``openai:<model>``) or by
+# a bare name, which goes to the default channel.  An endpoint or a key set in the
+# environment or in the secrets file (.secrets/models.env) wins over the one written here.
+# Any other OpenAI-compatible endpoint is a channel like ``openai``: a base_url, its
+# base_url_env and the api_key_env its key is read from.
+
+default_channel: openai
+
+channels:
+  openai:
+    # OpenAI's API -- or any OpenAI-compatible endpoint, with OPENAI_BASE_URL -- with the key
+    # OPENAI_API_KEY (the environment or the secrets file)
+    label: OpenAI
+    down_hint: check the network to the endpoint, or set OPENAI_BASE_URL
+    base_url: https://api.openai.com/v1
+    base_url_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+    openai_dialect: true         # max_completion_tokens; the model's own temperature
+    responses_prefixes: [gpt-]   # GPT models are asked on /responses, the rest on /chat/completions
+  anthropic:
+    # Anthropic's OpenAI-compatible endpoint, with the key ANTHROPIC_API_KEY
+    label: Anthropic
+    down_hint: check the network to api.anthropic.com, or set ANTHROPIC_BASE_URL
+    base_url: https://api.anthropic.com/v1
+    base_url_env: ANTHROPIC_BASE_URL
+    api_key_env: ANTHROPIC_API_KEY
+  local:
+    # served on this machine by vLLM (an OpenAI-compatible server): local:<the served
+    # model's name>, e.g. the paper's small model, Qwen3.5-4B, zero-shot or with a
+    # fine-tuned adapter; short names may be added under deployments
+    label: the local model server
+    down_hint: start the vLLM server, or set RUIKIT_LOCAL_BASE_URL
+    base_url: http://127.0.0.1:8000/v1
+    base_url_env: RUIKIT_LOCAL_BASE_URL
+    deployments: {}
+  qwencloud:
+    # QwenCloud's pay-as-you-go endpoint (OpenAI-compatible), with QWENCLOUD_API_KEY from the
+    # secrets file.  The Token Plan's terms allow interactive coding and agent tools only.
+    label: QwenCloud
+    down_hint: check the network to ap-southeast-1.maas.qwencloudapi.com
+    base_url: https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1
+    base_url_env: QWENCLOUD_BASE_URL
+    # the Token Plan (QWENTOKENPLAN_API_KEY), asked first with RUIKIT_QWENCLOUD_PLAN=1; it
+    # lists no dated snapshot, so use the alias qwen3.8-max with it
+    token_plan_url: https://token-plan.maas.qwencloudapi.com/compatible-mode/v1
+    deployments:
+      qwen3.8-max: qwen3.8-max

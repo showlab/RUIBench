@@ -1,0 +1,12 @@
+
+:root { --ref: #98a2ae; --lat-0: #86b6ef; --lat-1: #2a78d6; --lat-2: #104281; --lat4-0: #86b6ef; --lat4-1: #3987e5;
+  --lat4-2: #1c5cab; --lat4-3: #0d366b; --dot: #2a78d6; --grid: #e6eaef; --axis: #c3cad3;
+  --serious: #b4561f; --serious-soft: #fbe9dd; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --ref: #65707e; --lat-0: #184f95; --lat-1: #3987e5; --lat-2: #9ec5f4;
+    --lat4-0: #184f95; --lat4-1: #2a78d6; --lat4-2: #6da7ec; --lat4-3: #b7d3f6; --dot: #5598e7;
+    --grid: #232a33; --axis: #36404c; --serious: #f0915f; --serious-soft: #33200f; }
+}
+:root[data-theme="dark"] { --ref: #65707e; --lat-0: #184f95; --lat-1: #3987e5; --lat-2: #9ec5f4;
+  --lat4-0: #184f95; --lat4-1: #2a78d6; --lat4-2: #6da7ec; --lat4-3: #b7d3f6; --dot: #5598e7;
+  --grid: #232a33; --axis: #36404c; --serious: #f0915f; --serious-soft: #33200f; }

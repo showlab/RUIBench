@@ -1,0 +1,154 @@
+{
+ "interfaces": {
+  "rui.code-delta/v1+aids": {
+   "anthropic": "2f5f2a9d32c70517141dcfe11800a27fa70227b3c65c967bdd54399dafaeee46",
+   "code_reference": "5493647ac6f962df57312088d3cd96eb3d70fcd9a6e73e9ecd8929c60a2f08ad",
+   "mcp": "2c09f5e3bc549e618ecceec5356bee630c758386ca40ddb543cddbf766619af4",
+   "openai": "fad36578779ce112af7ea373ac2f6fb21efc1c6ce88dcac3ccb2b4e514216f5f",
+   "profile": "5d19ac14a42608da81beb061f8d8bfa08c33f7c9c94bed8e7e6639026bd92c85"
+  },
+  "rui.code-joint/v1+aids": {
+   "anthropic": "e05ef45c04f1c39de6f1a070672b59ca2a4c8e9b3484e22054d96c14e4b89512",
+   "code_reference": "763764fd4177f67a9521555b580ecbc0bbbb7ec47c52357f658aa07e036d1a11",
+   "mcp": "96f272bac4aeb5bd331ffb2b6f8e01296525e6f84698d20b741f7cc106bd870b",
+   "openai": "d97492ae975caa8d2e823c53b23f6331586b6edce9364275b563f3308d1e4ac9",
+   "profile": "198a77fe6f6933fc9eaf8983d5ffb35988de21ac19d8cf023e0fd4b95998a141"
+  },
+  "rui.code-point/v1+aids": {
+   "anthropic": "9f3ce7c353e286897d0c278773eb4eeb33a0f4d5efb95c06e1816acbb9b44466",
+   "code_reference": "d8149c15ffee99b5d6c19887b75bcf47019b82de1bc6115572ee168c67d1c96e",
+   "mcp": "d3df66a3885addb1f36f3b36905529f7a63ac90957ef6d9c14beda58ec9d3ff2",
+   "openai": "31df748cfada090168df8d37f898d82cfdabe9e18bd5ad63ad7054a4dbdc4feb",
+   "profile": "d88bdc828bd1b91b059c3f2a94de557af3f184a4751a4c2b0cf0724c04c0bcff"
+  },
+  "rui.code-skill/v1+aids": {
+   "anthropic": "93fe46c824319261a38421e365003e4f5d72559f22caa5e3aca5ebb5516175e1",
+   "code_reference": "e78b72fd270cd41ddea232b6c6bae273b32bcf40c49d04020261d4abc668d291",
+   "mcp": "af6bcf32af6d0aec5b7ecdcdc37f3fa9d8666ea478c4f6ed1e2a1a3ac5765e41",
+   "openai": "ca42d8faf2c4d972a0a9620ee346ea31483f48742fee2b9d5ef17a28e37a3af0",
+   "profile": "9771bc3df013b72aaaa31a63fd7ff7dbe4d45b56fbdec1c22026cd941c1d13b9"
+  },
+  "rui.code-skill/v1+aids+check": {
+   "anthropic": "93fe46c824319261a38421e365003e4f5d72559f22caa5e3aca5ebb5516175e1",
+   "code_reference": "e78b72fd270cd41ddea232b6c6bae273b32bcf40c49d04020261d4abc668d291",
+   "mcp": "af6bcf32af6d0aec5b7ecdcdc37f3fa9d8666ea478c4f6ed1e2a1a3ac5765e41",
+   "openai": "ca42d8faf2c4d972a0a9620ee346ea31483f48742fee2b9d5ef17a28e37a3af0",
+   "profile": "5d4b7da02c5a40693e956e4d7829c6701a33e34773ce3d8b87bf96d5abf43fc3"
+  },
+  "rui.code-skill/v1+aids+check:correct": {
+   "anthropic": "93fe46c824319261a38421e365003e4f5d72559f22caa5e3aca5ebb5516175e1",
+   "code_reference": "e78b72fd270cd41ddea232b6c6bae273b32bcf40c49d04020261d4abc668d291",
+   "mcp": "af6bcf32af6d0aec5b7ecdcdc37f3fa9d8666ea478c4f6ed1e2a1a3ac5765e41",
+   "openai": "ca42d8faf2c4d972a0a9620ee346ea31483f48742fee2b9d5ef17a28e37a3af0",
+   "profile": "4d1c936d5f6b163000d2dc84d5d44e7af7d6b46f22f484e809690ba5b8af26b6"
+  },
+  "rui.code-step/v1+aids": {
+   "anthropic": "87fe355c666485e1bd420b05d5bcd22ffd00131dadf077be00495f6c60cedde4",
+   "code_reference": "2e5bcabb5f98fc0f5d2a658855ea3bf8095c0dce26de58c9437e1a803fade73d",
+   "mcp": "01825402fdbc02e23aff6a5013dd74bab9d1cab54cad8c5d49ec797fb9b47796",
+   "openai": "e2ee7957430b6555f42d3bf880feccfcbef7bb1275f34d03df8144106baea901",
+   "profile": "ff222bc234b555b723b1f116d3d23d1ffc7b5116e624e57877e51bbbcefa4a91"
+  },
+  "rui.code/v1+aids": {
+   "anthropic": "72696debe18b85d44216a809ebb2d8303f6f045e89af38e701e0578be54f3258",
+   "code_reference": "6f0f49ddd6076492f61f414e59907490ca51d70b9313670e4b7a089c510f219a",
+   "mcp": "62de54f89ce4750f3f6416415b5d3a716f32d4ad94b316cb86d01ef60180ed71",
+   "openai": "f837c61495ed2e9e65cd6e073992000af745782d1fba139655c40c5092b77e46",
+   "profile": "b6c5f92073b8138aa1a561d63273c519dd61e23e2b7ba46bc4a335c156f957e4"
+  },
+  "rui.delta/v1+aids": {
+   "anthropic": "98a6ed7f0052056da7c63c971b9e75e997264b517758caa2a7b24cd0942ff8af",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "8fb275d649445437ea45d280d9fd4cc75f349e635a09c1c700eafc71ed48ea44",
+   "openai": "fb80a504f14dfc2684bc05ffc3a16158807b794de09d171766990631675b0a11",
+   "profile": "43243af3780619136e435b258e32b3a88a1eb6a690b3aa939af84d5e6d0ed985"
+  },
+  "rui.free/v1": {
+   "anthropic": "5c5fb85968cf8e2bb6736b4f2ba006fb317e33386d410c92af121a1212fa4f2f",
+   "code_reference": "084ff108d805455b68109f8344abee68176884e9f3e132f28190fd0a2eb3d90e",
+   "mcp": "7760642357ea9e45af194219f5443248f404b2d63f4c8fd8175bd9963c00697c",
+   "openai": "3eeaac99eb1aa9718922ac1c940357aa511b0cb94ae347f352ed447322a895b4",
+   "profile": "53abd6643830cf1ba6e3ce140058cc0e91e111a589216846b18a535a7ad1e8a6"
+  },
+  "rui.joint/v1+aids": {
+   "anthropic": "06530be8efb872b7b97d04a873be59b1486efd0dc4577980f4f8bc55f4fe497f",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "3c8521562e90faacdf5bb748c4a8420eba7e8ee4f178e1f297c198ab35afcda0",
+   "openai": "507362d9dea030f404f3a9cae40cfb6e8923e084d989c8f016f18d3dbb798f4d",
+   "profile": "0ba874f1f3357f1e11942e1c2b424b84e76cc8e07f9df8c2d93161dae9ef3d6d"
+  },
+  "rui.point/v1+aids": {
+   "anthropic": "ed323e9bcb21ebd76a6a3d68238033b2e6f406fcf4257d5a14bd936c00c0173d",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "c4c46e56de80df2472f711259f3c318acb46c1382ff89cba568278b096835fdf",
+   "openai": "f013770c3b8ab11e5d97cd560270acfe4d81286279a6a863a9a667378969a256",
+   "profile": "00e94d9e30a54adcc85c826c419b18e608c678b555c4a094676ddf21f3d6bb7f"
+  },
+  "rui.pose/v1+aids": {
+   "anthropic": "8de1003532f0f10073f7e4f885399a20b9140dc4d4af931a0e5804497dab06cd",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "02cba7699b80c31caec75e5fe90bf8492329ab27f47a39e28058a3eb9433524f",
+   "openai": "873afc45d656c4a8da13f4fa34bb791fc0f7b30979f9c8487ba3931c90361756",
+   "profile": "1da823609774cbcad8624896383717ed2fe34a917b9d2e515a67ac13c8c8f323"
+  },
+  "rui.seq-delta/v1+aids": {
+   "anthropic": "f265a77664ecbdf22534504aa7697211c82afaaf61d252989e399c4842592058",
+   "code_reference": "8e29b00b753c4c781b043e27db28025b07490d7712dc2d4695eb98f627d92862",
+   "mcp": "51fab16850f59d5b5c09dfd277d6f20e32bae8d3ea44618c3b8b92a1c5965181",
+   "openai": "07baf88c706f339f05f4d168c21a59c1baf2b2628004a301155d8f35cb11feb7",
+   "profile": "b1797492addbff29740d5f01ddaa7e3bbcaafb271a6009534b3626583610b152"
+  },
+  "rui.seq-point/v1+aids": {
+   "anthropic": "14ff17855862893220fd4410c293612f333b25af140fc14e93927ee5accb0d8c",
+   "code_reference": "704d5b8c7431af7846febc78d868a9a46f00e1bde80e1d85fb99e945579f3db0",
+   "mcp": "f0d52a2208251328d9ab1aec4d61d2e9c9b0e8a740829d98f68b8d0e79b68afa",
+   "openai": "ba52cb143fc7615837e48cadcd189ad1567cfcf5fb7931efa1379919d1b074f5",
+   "profile": "7497eccbbeeb076761b2cbff9b24893d8e694fe813502c3f100ee0ff47011115"
+  },
+  "rui.seq-step/v1+aids": {
+   "anthropic": "5d48c2f58d78b2356dbbc337a7a4c426ced5b0adca9258f4c5157bd459baf963",
+   "code_reference": "901119f7c72933a6448174b0a938027d470f1f7718e4d8fde3663bf89a6a5051",
+   "mcp": "cc167734a60762aefc1bc8f9bd088d9a9ff52fd3f61358eb23dcc03dbad07b4c",
+   "openai": "52a60cee79e2e0d37205af29a0d165795e89d0d3eff05e841838b6007ae9e38b",
+   "profile": "d4142060a8228ab92c74f62e14ead79f204ddf86db6209a5c2b1666ad758b929"
+  },
+  "rui.skill/v1+aids": {
+   "anthropic": "0e90785051993ff47e4591c231179d78c891d7548ad989f0357c4463ef24e1f0",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "ab741aa9c1552a62cc9dc2e7326e4cd926991f4b53703a6e7d117c593888aa70",
+   "openai": "84f6f324b2e5aa0b5070c5f7a10e315dc6ddfbbebf2ca3a0ffc5d46607214aaf",
+   "profile": "10d3f12097dd97c9900991927380ad36f4f878f7a002ca219df70d983a168a7f"
+  },
+  "rui.skill/v1+aids+check": {
+   "anthropic": "0e90785051993ff47e4591c231179d78c891d7548ad989f0357c4463ef24e1f0",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "ab741aa9c1552a62cc9dc2e7326e4cd926991f4b53703a6e7d117c593888aa70",
+   "openai": "84f6f324b2e5aa0b5070c5f7a10e315dc6ddfbbebf2ca3a0ffc5d46607214aaf",
+   "profile": "108c0c39e00d5c8d2f55ee2000ac4afd429f089a06ba9fadda3519b252868547"
+  },
+  "rui.skill/v1+aids+check:correct": {
+   "anthropic": "0e90785051993ff47e4591c231179d78c891d7548ad989f0357c4463ef24e1f0",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "ab741aa9c1552a62cc9dc2e7326e4cd926991f4b53703a6e7d117c593888aa70",
+   "openai": "84f6f324b2e5aa0b5070c5f7a10e315dc6ddfbbebf2ca3a0ffc5d46607214aaf",
+   "profile": "2919bdc1fb042a8c74d06702d1b23e9f486174ea17fcf0fdd0f24cc626bd9321"
+  },
+  "rui.step/v1+aids": {
+   "anthropic": "17867ff2d7c6c4c248abc791651f4de686028a5b09f6644849169601397c3b54",
+   "code_reference": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "mcp": "015a1b9bf985a18255018450e5a4d26d9993b34a4d3f296fc31cbc223ef7342e",
+   "openai": "6ab3ce810e87207df2e862638e1e68068268daa32f3fe05c74d8f7fda8d92d82",
+   "profile": "6972b172bf2607573cf1b413295c6f2f595ddf88ce1dbd84336c98173d50de14"
+  }
+ },
+ "prompts": {
+  "minimal_loop._guide": "7462722300b2c2ca8e382d8cced5a3ce267d57968393dfa582e63901a70c0e26",
+  "minimal_loop._output": "669930e7237c752a3a2c15292ea045b96da1b11f43627c7a98bfbdfc10931570",
+  "minimal_loop._pictures": "de5114d829d3fb409fb1fad14322b3bafb150804208269481ebd731db5980116",
+  "minimal_loop._tools": "295e1210f24fade61bd80681c078ef273c2faaecc27ca121f0c2500e765ad67d",
+  "minimal_loop._window": "ca73d0da1f700525df7a91b4ff0a94fb0aa1254230e0f15d8a6d3690e481efc6",
+  "minimal_loop.instructions": "db7bebac36e3e2204c4171e982eac87f394b721427ba51b9deb07c0ee10e543c",
+  "session_agent.PROMPT": "ab613ba65768c0f12f2c88ccf204ca68340cc61c7f6a4cd031a1b6477a570626",
+  "session_agent.REAL_PROMPT": "1c8f891f3fe48c06960dcd44c2840a3acf16d8ae8d782b3ce3f5e11edb950eb1"
+ }
+}

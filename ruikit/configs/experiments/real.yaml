@@ -1,0 +1,42 @@
+# The real-robot experiments, on the lab's Franka (ruibench/engines/franka), run
+# one episode at a time with an operator at the robot:
+#
+#   python -m ruikit.experiments.real --plan real --dry-run          # every episode it asks for
+#   python -m ruikit.experiments.real --plan real --harness claude-code --interfaces pose
+#
+# The tasks are the real station's (ruibench/tasks/real/tasks.yaml), at level easy:
+# the operator lays out the table of a seed, the same for each of its interfaces, and
+# judges each episode.  A row's clock is the measured one, the only one
+# a real robot has: its world goes on while the model thinks.
+defaults:
+  levels: [easy]
+  seeds: "0"
+  clock: measured
+  record: true         # film every episode: video.mp4 beside its result.json
+
+interface_sets:
+  # six action abstractions x two interaction forms, each with the aids (as the paper's rui)
+  twelve: [rui.joint/v1+aids, rui.delta/v1+aids, rui.step/v1+aids, rui.pose/v1+aids,
+           rui.point/v1+aids, rui.skill/v1+aids,
+           rui.code-joint/v1+aids, rui.code-delta/v1+aids, rui.code-step/v1+aids,
+           rui.code/v1+aids, rui.code-point/v1+aids, rui.code-skill/v1+aids]
+
+experiments:
+  bring-up:
+    title: "Bring-up: every interface puts the lemon on the plate"
+    note: "before the suites' tasks: each of the 13 interfaces runs R0 once; Claude Code first"
+    tasks: [R0]
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+      - {harness: codex, model: gpt-6-astra}
+    interfaces: [twelve, rui.free/v1]
+
+  suites:
+    title: "One task of each suite on the real station"
+    note: "set as the paper's rui is: its agents at high effort, its 13 interfaces, the easy level; one suite at a time (scripts/real_run.sh)"
+    tasks: [DS2, CL3, DI4]
+    seeds: "15"          # rui's; another table, another seed: scripts/real_run.sh DS2 --seed 16
+    agents:
+      - {harness: claude-code, model: claude-opus-5-5}
+      - {harness: codex, model: gpt-6-astra}
+    interfaces: [twelve, rui.free/v1]

@@ -1,0 +1,77 @@
+{
+ "table_z_m": 0.01866,
+ "front": {
+  "pos": [
+   1.05871,
+   0.033394,
+   0.40095
+  ],
+  "quat_wxyz": [
+   -0.3623531,
+   0.5990022,
+   0.6097144,
+   -0.3716785
+  ]
+ },
+ "wrist": {
+  "pos": [
+   0.061247,
+   -0.04641,
+   0.025002
+  ],
+  "quat_wxyz": [
+   -0.3583938,
+   -0.0243683,
+   0.0766693,
+   0.9300978
+  ]
+ },
+ "measured": "2026-11-02",
+ "depth_scale": {
+  "wrist": 1.00262,
+  "agentview": 0.97944
+ },
+ "fit": {
+  "run": "1102-163639",
+  "board": {
+   "squares": [
+    4,
+    4
+   ],
+   "dictionary": "DICT_4X4_50",
+   "marker_share": 0.705,
+   "legacy": true
+  },
+  "square_m": 0.029962,
+  "square_by_depth_m": 0.02998,
+  "views": 20,
+  "views_used": 20,
+  "view_px_median": 0.849,
+  "view_px_worst": 1.616,
+  "board_spread_mm": 1.88,
+  "board_spread_deg": 1.073,
+  "board_tilt_deg": 0.36,
+  "board_thickness_m": 0.0,
+  "front_px": 0.739,
+  "front_stream_vs_look": {
+   "mm": 0.88,
+   "deg": 0.086
+  },
+  "depth": {
+   "wrist": {
+    "pixels": 196565,
+    "median_mm": 0.93,
+    "rms_mm": 6.6,
+    "lean_deg": 1.062,
+    "scale": 1.00262
+   },
+   "agentview": {
+    "pixels": 158823,
+    "median_mm": -8.03,
+    "rms_mm": 5.23,
+    "lean_deg": 1.346,
+    "scale": 0.97944
+   }
+  }
+ }
+}

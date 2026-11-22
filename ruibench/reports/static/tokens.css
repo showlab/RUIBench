@@ -1,0 +1,94 @@
+/* RUIBench design tokens -- shared by the report and the viewer.
+   Cool drafting-paper neutrals; one accent (magenta) reserved for time:
+   the playhead, the current-time readout, focus and selection.  Task colours
+   (red, green, blue, yellow, orange, purple, white, black) belong to the
+   scene and never appear in the chrome. */
+:root {
+  --ground: #eef1f4;
+  --surface: #ffffff;
+  --surface-2: #f6f8fa;
+  --ink: #121720;
+  --ink-2: #3a4350;
+  --muted: #6a7482;
+  --rule: #d6dce3;
+  --accent: #c8246e;
+  --accent-soft: #fbe3ee;
+  --ok: #1b7f55;
+  --ok-soft: #dff3ea;
+  --fail: #b93a26;
+  --fail-soft: #fbe6e1;
+  --warn: #8f6210;
+  --warn-soft: #fbf0d9;
+  --plan-table: #dfe5ec;
+  --plan-grid: #cbd3dc;
+  --plan-grid-major: #aab5c2;
+  --plan-ink: #243040;
+  --lane: #f2f4f7;
+  --act-move: #56708c;
+  --act-grip: #a07516;
+  --act-other: #7d8794;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-label: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", var(--font-ui);
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1: 12px;
+  --step-0: 14px;
+  --step-1: 16px;
+  --step-2: 20px;
+  --step-3: 26px;
+  --radius: 8px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0d1015;
+    --surface: #151a21;
+    --surface-2: #1b212a;
+    --ink: #e7ebf0;
+    --ink-2: #c3cad3;
+    --muted: #8e98a5;
+    --rule: #28303b;
+    --accent: #ff5c9d;
+    --accent-soft: #3a1a2a;
+    --ok: #45c28b;
+    --ok-soft: #10281e;
+    --fail: #ff7b61;
+    --fail-soft: #33170f;
+    --warn: #e0b04c;
+    --warn-soft: #2f2410;
+    --plan-table: #1a2028;
+    --plan-grid: #232a33;
+    --plan-grid-major: #36404c;
+    --plan-ink: #d4dbe4;
+    --lane: #181d24;
+    --act-move: #8aa3bf;
+    --act-grip: #d6ad4f;
+    --act-other: #9aa3ae;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0d1015;
+  --surface: #151a21;
+  --surface-2: #1b212a;
+  --ink: #e7ebf0;
+  --ink-2: #c3cad3;
+  --muted: #8e98a5;
+  --rule: #28303b;
+  --accent: #ff5c9d;
+  --accent-soft: #3a1a2a;
+  --ok: #45c28b;
+  --ok-soft: #10281e;
+  --fail: #ff7b61;
+  --fail-soft: #33170f;
+  --warn: #e0b04c;
+  --warn-soft: #2f2410;
+  --plan-table: #1a2028;
+  --plan-grid: #232a33;
+  --plan-grid-major: #36404c;
+  --plan-ink: #d4dbe4;
+  --lane: #181d24;
+  --act-move: #8aa3bf;
+  --act-grip: #d6ad4f;
+  --act-other: #9aa3ae;
+  color-scheme: dark;
+}

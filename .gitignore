@@ -1,0 +1,24 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Episode logs, results and reports; regenerate with `ruibench run` / `ruikit run`.
+runs/
+
+# The Isaac Sim virtualenv and the assets `ruibench setup` fetches.
+.venv/
+.venv-vision/
+third_party/
+
+# Build output and tool caches
+build/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local secrets: model API keys (.secrets/models.env). Never committed.
+.secrets/
+
+# Claude Code: personal, machine-specific permission rules
+.claude/settings.local.json

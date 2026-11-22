@@ -1,0 +1,673 @@
+{
+  "generated_by": "ruibench doctor --assets",
+  "checked_on": "2026-09-16",
+  "asset_root": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.5/Isaac",
+  "assets": {
+    "table": {
+      "usd": "{NUCLEUS}/Props/Mounts/SeattleLabTable/table_instanceable.usd",
+      "ok": true
+    }
+  },
+  "geometry": {
+    "crackers": {
+      "as_authored": {
+        "half_extents": [
+          0.0701,
+          0.0302,
+          0.1046
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0604,
+      "graspable": true
+    },
+    "cheez_it": {
+      "as_authored": {
+        "half_extents": [
+          0.082,
+          0.0359,
+          0.1067
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0718,
+      "graspable": true
+    },
+    "duck_small": {
+      "as_authored": {
+        "half_extents": [
+          0.0249,
+          0.035,
+          0.0333
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0498,
+      "graspable": true
+    },
+    "teddy_small": {
+      "as_authored": {
+        "half_extents": [
+          0.0272,
+          0.0375,
+          0.0125
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0544,
+      "graspable": true
+    },
+    "cabbage": {
+      "as_authored": {
+        "half_extents": [
+          0.0314,
+          0.0325,
+          0.0227
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0628,
+      "graspable": true
+    },
+    "bucket_small": {
+      "as_authored": {
+        "half_extents": [
+          0.0217,
+          0.0202,
+          0.0325
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0404,
+      "graspable": true
+    },
+    "wolf_grey": {
+      "as_authored": {
+        "half_extents": [
+          0.0275,
+          0.055,
+          0.0364
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.055,
+      "graspable": true
+    },
+    "goat_white": {
+      "as_authored": {
+        "half_extents": [
+          0.0147,
+          0.05,
+          0.0482
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0294,
+      "graspable": true
+    },
+    "doll_family_0": {
+      "as_authored": {
+        "half_extents": [
+          0.0355,
+          0.045,
+          0.0192
+        ],
+        "centre_offset": [
+          0.0,
+          -0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.071,
+      "graspable": true
+    },
+    "doll_family_1": {
+      "as_authored": {
+        "half_extents": [
+          0.034,
+          0.045,
+          0.0146
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.068,
+      "graspable": true
+    },
+    "doll_family_3": {
+      "as_authored": {
+        "half_extents": [
+          0.0325,
+          0.045,
+          0.0133
+        ],
+        "centre_offset": [
+          0.0,
+          -0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.065,
+      "graspable": true
+    },
+    "doll_modern_0": {
+      "as_authored": {
+        "half_extents": [
+          0.0329,
+          0.045,
+          0.023
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0658,
+      "graspable": true
+    },
+    "doll_modern_1": {
+      "as_authored": {
+        "half_extents": [
+          0.0307,
+          0.045,
+          0.0136
+        ],
+        "centre_offset": [
+          0.0,
+          -0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0614,
+      "graspable": true
+    },
+    "doll_modern_3": {
+      "as_authored": {
+        "half_extents": [
+          0.032,
+          0.045,
+          0.0134
+        ],
+        "centre_offset": [
+          0.0,
+          -0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.064,
+      "graspable": true
+    },
+    "doll_bed": {
+      "as_authored": {
+        "half_extents": [
+          0.0872,
+          0.0621,
+          0.0303
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.1242,
+      "graspable": false
+    },
+    "doll_sofa": {
+      "as_authored": {
+        "half_extents": [
+          0.1048,
+          0.0434,
+          0.0511
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0868,
+      "graspable": false
+    },
+    "bunsen_burner_cc0": {
+      "as_authored": {
+        "half_extents": [
+          0.0281,
+          0.0317,
+          0.055
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0562,
+      "graspable": true
+    },
+    "chess_board": {
+      "as_authored": {
+        "half_extents": [
+          0.2766,
+          0.2766,
+          0.0087
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.5532,
+      "graspable": false
+    },
+    "chess_knight_white": {
+      "as_authored": {
+        "half_extents": [
+          0.0194,
+          0.0227,
+          0.0375
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0388,
+      "graspable": true
+    },
+    "chess_king_white": {
+      "as_authored": {
+        "half_extents": [
+          0.0208,
+          0.0209,
+          0.0475
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0416,
+      "graspable": true
+    },
+    "chess_king_black": {
+      "as_authored": {
+        "half_extents": [
+          0.0208,
+          0.0209,
+          0.0475
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0416,
+      "graspable": true
+    },
+    "chess_pawn_white": {
+      "as_authored": {
+        "half_extents": [
+          0.0145,
+          0.0144,
+          0.0269
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0288,
+      "graspable": true
+    },
+    "chess_pawn_black": {
+      "as_authored": {
+        "half_extents": [
+          0.0145,
+          0.0144,
+          0.0269
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0288,
+      "graspable": true
+    },
+    "chess_rook_black": {
+      "as_authored": {
+        "half_extents": [
+          0.0184,
+          0.0183,
+          0.0303
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0366,
+      "graspable": true
+    },
+    "scallop_brown": {
+      "as_authored": {
+        "half_extents": [
+          0.0325,
+          0.0301,
+          0.0131
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0602,
+      "graspable": true
+    },
+    "scallop_sea": {
+      "as_authored": {
+        "half_extents": [
+          0.0325,
+          0.0322,
+          0.0103
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0644,
+      "graspable": true
+    },
+    "sand_pail": {
+      "as_authored": {
+        "half_extents": [
+          0.0434,
+          0.0405,
+          0.065
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.081,
+      "graspable": false
+    },
+    "river_rock": {
+      "as_authored": {
+        "half_extents": [
+          0.031,
+          0.0171,
+          0.0147
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0342,
+      "graspable": true
+    },
+    "sea_pebble": {
+      "as_authored": {
+        "half_extents": [
+          0.028,
+          0.0211,
+          0.0143
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0422,
+      "graspable": true
+    },
+    "easter_egg": {
+      "as_authored": {
+        "half_extents": [
+          0.028,
+          0.0213,
+          0.0213
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0426,
+      "graspable": true
+    },
+    "raspberry_tart": {
+      "as_authored": {
+        "half_extents": [
+          0.0316,
+          0.032,
+          0.025
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0632,
+      "graspable": true
+    },
+    "tin_robot": {
+      "as_authored": {
+        "half_extents": [
+          0.0355,
+          0.021,
+          0.065
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.042,
+      "graspable": true
+    },
+    "fire_engine": {
+      "as_authored": {
+        "half_extents": [
+          0.0195,
+          0.08,
+          0.0564
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.039,
+      "graspable": true
+    },
+    "rattan_basket": {
+      "as_authored": {
+        "half_extents": [
+          0.09,
+          0.09,
+          0.0419
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.18,
+      "graspable": false
+    },
+    "cork_stopper": {
+      "as_authored": {
+        "half_extents": [
+          0.0181,
+          0.022,
+          0.0181
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.0362,
+      "graspable": true
+    },
+    "toy_airplane": {
+      "as_authored": {
+        "half_extents": [
+          0.06,
+          0.0597,
+          0.0423
+        ],
+        "centre_offset": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "upright": "as_authored",
+      "narrow_width_m": 0.1194,
+      "graspable": false
+    }
+  },
+  "downloads": {
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/chemistry_set/chemistry_set_metal_2k.exr": "36c63400abb3d2a5337e228cee767afec35fc7c26ad4426984ccbaf7f2be76fc",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/chemistry_set/chemistry_set_nor_gl_2k.exr": "d5881098ac5e8a7ca1e9886d52dff0a56209912dbfa982b22044121b6912da0d",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/chemistry_set/chemistry_set_rough_2k.exr": "3ddea2065aa6687e366964b98d14f0a0e0e55f9c02da362aa52d71c27773ee74",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/rubber_duck_toy/rubber_duck_toy_metal_2k.exr": "8f61a6f6dca3770513a4586fd1a352a070bda25a87c44c9e0a4fd92b08546293",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/rubber_duck_toy/rubber_duck_toy_nor_gl_2k.exr": "bc292c15068fdad7b2c35eeb6d8d6d4199f1e1600bda9ad8b6a7317c5be197e2",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/rubber_duck_toy/rubber_duck_toy_rough_2k.exr": "e3f1cac906d44b331540a0278284da66013b36740a694cfe66007d9c7d6dbe3f",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wooden_bucket_01/wooden_bucket_01_metal_2k.exr": "ee9145bd5354cd3134da6c9aeaf9d10a93123a4d791071dd0bd5ddf4f209be3f",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wooden_bucket_01/wooden_bucket_01_nor_gl_2k.exr": "27186d1e6df0b636bc18bdd145f4074c49c0a23a35cbd9af15427753eec9892f",
+    "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wooden_bucket_01/wooden_bucket_01_rough_2k.exr": "ca16fd68a24ef07502cfdabfd9e5b37b200a849c915a346ea49eea5e4d3afad2",
+    "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/chemistry_set/chemistry_set_diff_2k.jpg": "f35c775f3a794b0629d8d93a11110122dc14a1485f4a587bec45980591ca1f78",
+    "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rubber_duck_toy/rubber_duck_toy_diff_2k.jpg": "6abc199fd0249ff906ddb977510c6f6527887aadc976dbede2ec67bda64b0f92",
+    "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_bucket_01/wooden_bucket_01_diff_2k.jpg": "81c56fadd487ed6ee106f2c02fda074851df3935a3780862e7237f2832475179",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chemistry_set/chemistry_set_alpha_2k.png": "d1b0f224f923a602d4911069bda51359bd93476958189617c7c63da7391e483e",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_board_diff_2k.png": "1a8820f0874508ebc2629d70800711d1ddb4e8e3074fd642a27b43874f9e9749",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_board_nor_gl_2k.png": "e660645df569d4dfcd46e53459e52698eddc81ebe07eea8aa0f5f789e985da7e",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_board_rough_2k.png": "7daa6175fa821633405164cd2c9b4ecef8ab9d7f4e336c80e88b58fef895e2c7",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_pieces_black_diff_2k.png": "58f7cc1f576455a0bb4f00d58bf811b7fba0779a2e286a6f1befcf88f4ed6615",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_pieces_black_nor_gl_2k.png": "8bf2479b042315c09d527274ef08012b3759f418ed7a52769799aa48d95107b4",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_pieces_black_rough_2k.png": "8571f3a758dbb97513c8385ea30652a985ee40c95b567247b5487f88ce6141ec",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_pieces_white_diff_2k.png": "27aecf4146a63b0bf952e4659130d441cff3c1c2c68102fa4e5d9ba3c0522c4a",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_pieces_white_nor_gl_2k.png": "15a29aeb1526534474ab7dc31958b405fafd3f6cf059612bd0b9fd6725d89559",
+    "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/chess_set/chess_set_pieces_white_rough_2k.png": "882fdf806ec73e56ebefdb4ebcc4b606cc0c97f251be3158beb9667603415784",
+    "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/chemistry_set/chemistry_set_2k.usdc": "54c1fa13d658efad044ce785ff32eb86eceaa80bc031a20efb5caae886756b91",
+    "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/chess_set/chess_set_2k.usdc": "6061312a8192e0f68866f053cbc4b65413d78224430a0ae58c07e64478dbd3fc",
+    "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/rubber_duck_toy/rubber_duck_toy_2k.usdc": "93bdf4bcca8130d16f46f1671e63337fba5bd862546ce8bf1fb2e9d9635a731b",
+    "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/wooden_bucket_01/wooden_bucket_01_2k.usdc": "c69a84c780b1f918f0a660e990a0b61a3c2a81305c6ee5b57fbfe4a016ce3774",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/3D_Dollhouse_Sofa/1/3D_Dollhouse_Sofa.zip": "6acca58e1bfedd96ae5b425ec82ac958034717cb66a7571cd894774394f98270",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/BEDROOM_CLASSIC/1/BEDROOM_CLASSIC.zip": "cd3a262bec782a19f818b05826521a238e2a35bdc069d1d5defc96d28dea90bd",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/DOLL_FAMILY/1/DOLL_FAMILY.zip": "94693b6f2b2eb830ed8e38d31213bd8512f56b851df633c155eab1ce4788b1d7",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/FIRE_ENGINE/1/FIRE_ENGINE.zip": "23b9d7e3ce3d5f7a609aea818b56482ff628d7e4572ddea6bcd7d54bb54b1260",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/Lovable_Huggable_Cuddly_Boutique_Teddy_Bear_Beige/1/Lovable_Huggable_Cuddly_Boutique_Teddy_Bear_Beige.zip": "7b7e3ef0d30e9eb82e823d4906d36aac39bce890387e718df872328eedea5cd6",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/MODERN_DOLL_FAMILY/1/MODERN_DOLL_FAMILY.zip": "88b655434b5415ab00c02aa8edd19cb406cdeee3e42ae0f9855b1324de5d2d4c",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/TURBOPROP_AIRPLANE_WITH_PILOT/1/TURBOPROP_AIRPLANE_WITH_PILOT.zip": "b4d382067a9075f09722b83aa66fae5cf4e6cee0019dfa5e6278c16dbffc08bf",
+    "https://fuel.gazebosim.org/1.0/GoogleResearch/models/VANS_FIRE_ROASTED_VEGGIE_CRACKERS_GLUTEN_FREE/1/VANS_FIRE_ROASTED_VEGGIE_CRACKERS_GLUTEN_FREE.zip": "102b5b921cdfc2a93ec30c69cc5c2fee59269bb896ab7ba90e012d2ffa7b454c",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-020/26563b2166ce49d6a80b77d02983357d.glb": "a2c5913c95af94fdd44ae9e95efb4a2b3b2a6cf950a40c66b4849d36ebc871a2",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-021/b1fb5b82ab694a8e8316693fa9fb37c4.glb": "d99c4b647feabc881567b897ff5ed8db5be5473eded6b5b31bca5215e9a62867",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-034/94f34031cb3141eb88a1f7f9be309213.glb": "62e5ee4256cca0352df4132be6d294114489efb32e33ee841fb07c1a2d459964",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-039/c01b7abbedfa4e49bd25f14c4b2a756a.glb": "4704c3f03ecfa83eb07be0da13e210025cfdd8d073c7b3525e4c19f6b9bed54e",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-058/00beb4f7241e496e8a2ebb47fdb4f93c.glb": "447d8d82a466446e61730cb3b3743575181c72ce3eaa87aac8878bd81bfb5396",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-077/654306fc3ae344c7b9e7a9a40faca45b.glb": "301f6090db79aaf6e25d471c48f1c04d974a65a81d36b10d63921d3c76b6d7e9",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-081/ea2ac2deec06472a91a2a011cf821ea3.glb": "4eaadd0d6fac87f3722ed6869fc1d9a39f4e4b0a9d3683e302e73fc3beff433b",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-105/a2832b845e4e4edd9d439342cf4fd590.glb": "278e05fb2b1182600a610bc1b6e394ab8ff5232dda76d1ce363964295469c829",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-106/e563bcf9d31146ed8a1bf4f61f083a00.glb": "499fc3e8f83278c6bc38b4c782523dcb9e6163945d93aab156999fbc143efa9a",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-116/1ec6b6d013c5439bb9dc3002788d9921.glb": "ed9808db3c5bf310d123c9d6fa9151417f294216a0de9d5b4af9fb9911afa359",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-134/cce169a845e94d1ca3f03129a32b3bfd.glb": "5492f863e3a79eb978dd9c5eeee1cab5b7a0cd12dfdac82949dc5aa3efb0c728",
+    "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-150/72a33024835845e38e6d22fe9e03547a.glb": "ec32c0443bee99efa46fa6b32a02660f014520863aa21e5cb6c6c9b849f49a79"
+  }
+}

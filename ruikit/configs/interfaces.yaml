@@ -1,0 +1,151 @@
+# The named interfaces.  Each is an interaction form applied to an action
+# abstraction (``ruikit.interfaces``, ``ruikit.actions``): the pair fixes the
+# tools offered, what a program may call, the channel and when control comes
+# back.  Written here is what names and describes each one; the title is what
+# the agent is told.  An id composes more onto any of them:
+# ``rui.pose/v1+aids@owlv2-sam2``.
+
+# one action a reply
+rui.joint/v1:
+  form: per_action
+  action: joint
+  title: "RUIBench joint · joints"
+  reproduces: "joint targets, as Inspect Robots and yad-use offer them"
+  differences: "inverse kinematics is offered as a tool (robot_solve_ik): the robot's own, inside its joint limits"
+rui.delta/v1:
+  form: per_action
+  action: delta
+  title: "RUIBench increment · delta"
+  reproduces: "Embody's direct control / asimfish's Delta: the gripper moved by a vector"
+  differences: "the vector may be along the station's axes or the gripper's own (frame='tool')"
+rui.step/v1:
+  form: per_action
+  action: step
+  title: "RUIBench I1 · semantic step"
+  reproduces: "Show-Harness semantic action tokens (MV_*, ROTATE_*, GRASP, RELEASE)"
+  differences: "tokens are enum arguments of robot_step instead of JSON text; tilt and micro steps added; a step may repeat up to 5 times in one reply (extension)"
+rui.pose/v1:
+  form: per_action
+  action: pose
+  title: "RUIBench I2 · pose"
+  reproduces: "Robocurve / Inspect Robots move_to (absolute gripper pose)"
+rui.point/v1:
+  form: per_action
+  action: point
+  title: "RUIBench I3 · pointing"
+  reproduces: "MOKA / PIVOT / Gemini-ER pointing, lifted by depth"
+  differences: "orientation given as rpy_deg next to the pixel, for every task alike"
+rui.skill/v1:
+  form: per_action
+  action: skill
+  title: "RUIBench skills"
+  reproduces: "SayCan / ROS-MCP: parameterised skills, each closed within itself"
+  differences: "each skill takes a frame-local object id, a pixel or a point, from the Core's perception"
+
+# a program over one abstraction's tools
+rui.code/v1:
+  form: program
+  action: pose
+  title: "RUIBench I4 · program"
+  reproduces: "CaP-X code-as-policy over I2's calls"
+  differences: "programs run online in a sandbox: each call acts on the live world"
+rui.code-joint/v1:
+  form: program
+  action: joint
+  title: "RUIBench program · over the joint Dialect"
+  reproduces: "Code as Policies over rui.joint/v1's calls"
+  differences: "programs run online in a sandbox: each call acts on the live world"
+rui.code-delta/v1:
+  form: program
+  action: delta
+  title: "RUIBench program · over the increment Dialect"
+  reproduces: "Code as Policies over rui.delta/v1's calls"
+  differences: "programs run online in a sandbox: each call acts on the live world"
+rui.code-step/v1:
+  form: program
+  action: step
+  title: "RUIBench program · over the semantic step Dialect"
+  reproduces: "Code as Policies over rui.step/v1's calls"
+  differences: "programs run online in a sandbox: each call acts on the live world"
+rui.code-point/v1:
+  form: program
+  action: point
+  title: "RUIBench program · over the pointing Dialect"
+  reproduces: "Code as Policies over rui.point/v1's calls"
+  differences: "programs run online in a sandbox: each call acts on the live world"
+rui.code-skill/v1:
+  form: program
+  action: skill
+  title: "RUIBench program · over the skills Dialect"
+  reproduces: "Code as Policies over rui.skill/v1's calls"
+  differences: "programs run online in a sandbox: each call acts on the live world"
+
+# a series of actions in one reply, nothing seen in between: a program that
+# only acts, the looking left to the replies (where a program's gain comes from)
+rui.seq-joint/v1:
+  form: sequence
+  action: joint
+  title: "RUIBench action sequence · over the joint Dialect"
+  reproduces: "open-loop action chunks: a plan of several joint moves sent at once"
+  differences: "the series is written as a program whose calls return nothing; robot_solve_ik stays a tool"
+rui.seq-delta/v1:
+  form: sequence
+  action: delta
+  title: "RUIBench action sequence · over the increment Dialect"
+  reproduces: "open-loop action chunks: several increments sent at once"
+  differences: "the series is written as a program whose calls return nothing"
+rui.seq-step/v1:
+  form: sequence
+  action: step
+  title: "RUIBench action sequence · over the semantic step Dialect"
+  reproduces: "Show-Harness semantic action tokens, several sent at once"
+  differences: "the series is written as a program whose calls return nothing"
+rui.seq-pose/v1:
+  form: sequence
+  action: pose
+  title: "RUIBench action sequence · over the pose Dialect"
+  reproduces: "open-loop action chunks: several gripper poses sent at once"
+  differences: "the series is written as a program whose calls return nothing"
+rui.seq-point/v1:
+  form: sequence
+  action: point
+  title: "RUIBench action sequence · over the pointing Dialect"
+  reproduces: "pointing, several targets picked in one look and sent at once"
+  differences: "the series is written as a program whose calls return nothing"
+rui.seq-skill/v1:
+  form: sequence
+  action: skill
+  title: "RUIBench action sequence · over the skills Dialect"
+  reproduces: "SayCan-style skill plans sent at once"
+  differences: "the series is written as a program whose calls return nothing; each skill still closes within itself"
+
+# every abstraction side by side, the model choosing one each time
+rui.free/v1:
+  form: free
+  title: "RUI-Free · any action"
+  reproduces: "agents that choose how to act each time (Claude Code, Codex on a robot)"
+  differences: "the seven Dialects' moves side by side; code_run's programs may call all of them"
+
+# The open track: any agent, the whole library.  Its tools are listed rather
+# than generated.  The list the model sees stays near 20 (selection accuracy
+# drops past 30-50 tools); the rest is callable from code_run and listed by
+# toolkit_list.
+open/v1:
+  title: "Open track"
+  track: open
+  tools: [camera_look, camera_zoom, robot_state,
+          vision_detect, vision_point, vision_lift,
+          robot_move_to, robot_move_delta, robot_gripper, robot_wait, robot_stop,
+          skill_pick, skill_place, skill_press,
+          policy_run, code_run,
+          task_info, task_demo, task_events, task_done,
+          toolkit_list, toolkit_define]
+  code_tools: [camera_look, camera_zoom, robot_state,
+               vision_detect, vision_segment, vision_point, vision_lift, vision_pose, vision_marks,
+               vision_track,
+               robot_move_to, robot_move_delta, robot_step, robot_move_to_pixel, robot_waypoints,
+               robot_chunk, robot_gripper, robot_home, robot_wait, robot_stop,
+               robot_solve_ik, robot_move_joints,
+               skill_pick, skill_place, skill_press, skill_push, policy_run, policy_propose,
+               plan_ik, plan_grasps, plan_motion, model_decide, model_ask, model_imagine,
+               memory_note, memory_recall, memory_frames, task_events]

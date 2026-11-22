@@ -1,0 +1,8 @@
+# The pose interface with one more tool, from my_plugin/echo_tool.py.
+id: my.pose-echo/v1
+extends: rui.pose/v1
+title: "pose, and an echo"
+tools: [camera_look, camera_zoom, robot_state,
+        vision_detect, vision_segment, vision_lift, vision_pose,
+        robot_move_to, robot_gripper, robot_wait, robot_stop,
+        task_info, task_demo, task_events, task_done, debug_echo]

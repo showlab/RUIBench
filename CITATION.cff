@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use RUIBench or RUIKit, please cite the paper."
+title: "RUIBench and RUIKit"
+version: "1.0.0"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/showlab/RUIBench"
+url: "https://showlab.github.io/RUIBench/"
+authors:
+  - {family-names: Chen, given-names: Yanzhe}
+  - {family-names: Cao, given-names: Zhijun}
+  - {family-names: Bai, given-names: Zechen}
+  - {family-names: Zeng, given-names: Wenzheng}
+  - {family-names: Ma, given-names: Kevin Yuchen}
+  - {family-names: Lin, given-names: Yiqi}
+  - {family-names: Liang, given-names: Guoqiang}
+  - {family-names: Liu, given-names: Xiaokang}
+  - {family-names: Sun, given-names: Ke}
+  - {family-names: Lin, given-names: Kevin Qinghong}
+  - {family-names: Shou, given-names: Mike Zheng}
+preferred-citation:
+  type: article
+  title: "RUIBench: What Makes a Good Robot-Use Interface?"
+  journal: "arXiv preprint arXiv:"
+  year: 2026
+  authors:
+    - {family-names: Chen, given-names: Yanzhe}
+    - {family-names: Cao, given-names: Zhijun}
+    - {family-names: Bai, given-names: Zechen}
+    - {family-names: Zeng, given-names: Wenzheng}
+    - {family-names: Ma, given-names: Kevin Yuchen}
+    - {family-names: Lin, given-names: Yiqi}
+    - {family-names: Liang, given-names: Guoqiang}
+    - {family-names: Liu, given-names: Xiaokang}
+    - {family-names: Sun, given-names: Ke}
+    - {family-names: Lin, given-names: Kevin Qinghong}
+    - {family-names: Shou, given-names: Mike Zheng}

@@ -727,7 +727,7 @@ figcaption { text-align: left; }
 .topbar { height: 56px; background: rgba(255, 255, 255, .82); backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px);
   border-bottom: 1px solid rgba(17, 24, 32, .09); }
 .topbar .container { max-width: 1120px; padding: 0 24px; gap: 20px; }
-.topbar .mark { font-size: 19px; }
+.topbar .mark { font-size: 21px; }
 .topbar nav { gap: 3px; }
 .topbar nav a { font-size: 14.1px; padding: 6px 11.2px; border-radius: 999px; color: #636b75; }
 .topbar nav a:hover { color: #111820; background: rgba(17, 24, 32, .05); }
@@ -738,7 +738,7 @@ figcaption { text-align: left; }
 @media (max-width: 640px) {
   .topbar { height: 50px; }
   .topbar .container { padding: 0 16px; gap: 9.6px; }
-  .topbar .mark { font-size: 17px; }
+  .topbar .mark { font-size: 18.5px; }
   .topbar nav { padding: 0 18px 0 8px;
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 22px), transparent);
     mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 22px), transparent); }

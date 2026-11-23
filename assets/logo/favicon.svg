@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -56.5 213 213" width="64" height="64" role="img" aria-label="RUIBench">
+  <title>RUIBench</title>
+  <rect x="-10" y="-56.5" width="213" height="213" rx="45.6" fill="#f6f3ee"/>
+  <g id="R">
+    <rect x="-3" y="92" width="38" height="8" rx="3" fill="#5590c7"/><rect x="-3" y="92" width="35.4" height="5.4" rx="3" fill="#6ea7db"/><path d="M-0.7999999999999998 94.80000000000001 V94.2 H29.799999999999997" fill="none" stroke="#b7d6f1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="3" y="84.5" width="26" height="9.5" rx="3" fill="#5590c7"/><rect x="3" y="84.5" width="23.4" height="6.9" rx="3" fill="#6ea7db"/><path d="M5.2 88.80000000000001 V86.7 H23.799999999999997" fill="none" stroke="#b7d6f1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="7" y="19.07" width="18" height="67.93" rx="1.5" fill="#5590c7"/><rect x="7" y="19.07" width="14" height="63.93000000000001" rx="1.5" fill="#6ea7db"/><path d="M9.2 80.4 V21.27 H18.4" fill="none" stroke="#b7d6f1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 16 16.91 L 46 10.42" stroke="#6ea7db" stroke-width="17" stroke-linecap="round"/>
+    <path d="M 21 11.07 L 41 6.74" stroke="#b7d6f1" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 22 23.62 L 41 19.51" stroke="#5590c7" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M 48 12.58 Q 60 36.39 31 47.21" fill="none" stroke="#6ea7db" stroke-width="15" stroke-linecap="round"/>
+    <path d="M 47 26.11 Q 46.6 32.49 41.8 35.52" fill="none" stroke="#b7d6f1" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 56.6 24.49 Q 57.2 38.12 47.4 44.61" fill="none" stroke="#5590c7" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M 31 47.21 L 51 67.23" stroke="#6ea7db" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 38.2 49.81 L 48.6 60.19" stroke="#b7d6f1" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 34.2 56.08 L 44.6 66.47" stroke="#5590c7" stroke-width="3" stroke-linecap="round"/>
+    <!-- the red block, flat on the table -->
+    <rect x="43" y="88" width="16" height="12" rx="2" fill="#c55050"/><rect x="43" y="88" width="13.5" height="9.5" rx="2" fill="#df6666"/><path d="M45.2 94.9 V90.2 H53.9" fill="none" stroke="#f4b0b0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- the claw: a neck from the wrist, two curved jaws hinged at the top -->
+    <path d="M 51 68.85 V 78.4" stroke="#6ea7db" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M 49.3 72.1 V 76.6" stroke="#b7d6f1" stroke-width="1.3" stroke-linecap="round"/>
+    <path d="M38 93 A13 13 0 0 1 64 93" fill="none" stroke="#4a80b4" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M39.9 87.7 A13 13 0 0 1 44.9 81.5" fill="none" stroke="#6ea7db" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="51" cy="80" r="4.3" fill="#4a80b4"/><circle cx="51" cy="80" r="1.7" fill="#f6f3ee"/>
+    <circle cx="16" cy="16.91" r="13" fill="#4a80b4"/><circle cx="16" cy="16.91" r="8.450000000000001" fill="#6ea7db"/><path d="M8.06 14.04 A8.45 8.45 0 0 1 13.13 8.97" fill="none" stroke="#b7d6f1" stroke-width="1.69" stroke-linecap="round"/><circle cx="16" cy="16.91" r="3.38" fill="#f6f3ee"/>
+    <circle cx="47" cy="11.5" r="11.5" fill="#4a80b4"/><circle cx="47" cy="11.5" r="7.4750000000000005" fill="#6ea7db"/><path d="M39.97 8.96 A7.48 7.48 0 0 1 44.46 4.47" fill="none" stroke="#b7d6f1" stroke-width="1.50" stroke-linecap="round"/><circle cx="47" cy="11.5" r="2.99" fill="#f6f3ee"/>
+    <circle cx="31" cy="47.21" r="10" fill="#4a80b4"/><circle cx="31" cy="47.21" r="6.5" fill="#6ea7db"/><path d="M24.89 45.00 A6.50 6.50 0 0 1 28.79 41.10" fill="none" stroke="#b7d6f1" stroke-width="1.30" stroke-linecap="round"/><circle cx="31" cy="47.21" r="2.60" fill="#f6f3ee"/>
+    <circle cx="51" cy="67.23" r="7.5" fill="#4a80b4"/><circle cx="51" cy="67.23" r="4.875" fill="#6ea7db"/><path d="M46.42 65.57 A4.88 4.88 0 0 1 49.34 62.65" fill="none" stroke="#b7d6f1" stroke-width="1.20" stroke-linecap="round"/><circle cx="51" cy="67.23" r="1.95" fill="#f6f3ee"/>
+  </g>
+  <!-- U: toy bricks from Build the House, seen from the side: an orange and a red pillar of four bricks
+       each, studs on top, on a green plank whose studs show between them -->
+  <g id="U" transform="translate(80 0)">
+    <path d="M23.2 84 V82.0 Q23.2 80.6 24.599999999999998 80.6 H27.4 Q28.799999999999997 80.6 28.799999999999997 82.0 V84 Z" fill="#5a9640"/><path d="M23.2 84 V82.0 Q23.2 80.6 24.599999999999998 80.6 H26.199999999999996 Q27.599999999999998 80.6 27.599999999999998 82.0 V84 Z" fill="#6faf53"/><path d="M24.4 83.4 V82.19999999999999 H26.199999999999996" fill="none" stroke="#b0d89c" stroke-width="1" stroke-linecap="round"/><path d="M31.6 84 V82.0 Q31.6 80.6 33.0 80.6 H35.800000000000004 Q37.2 80.6 37.2 82.0 V84 Z" fill="#5a9640"/><path d="M31.6 84 V82.0 Q31.6 80.6 33.0 80.6 H34.6 Q36.0 80.6 36.0 82.0 V84 Z" fill="#6faf53"/><path d="M32.800000000000004 83.4 V82.19999999999999 H34.6" fill="none" stroke="#b0d89c" stroke-width="1" stroke-linecap="round"/>
+    <rect x="-2" y="84" width="64" height="16" rx="3" fill="#5a9640"/><rect x="-2" y="84" width="61" height="13" rx="3" fill="#6faf53"/><path d="M0.20000000000000018 94.4 V86.2 H56.4" fill="none" stroke="#b0d89c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="0" y="3.4" width="19" height="80.6" rx="2.5" fill="#c9843f"/><rect x="0" y="3.4" width="19" height="19.25" rx="2.2" fill="#dd9550"/><rect x="0" y="3.4" width="16.4" height="16.65" rx="2.2" fill="#f6b16a"/><path d="M2.2 17.449999999999996 V5.6 H13.799999999999999" fill="none" stroke="#fcdcb6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="0" y="23.549999999999997" width="19" height="19.25" rx="2.2" fill="#dd9550"/><rect x="0" y="23.549999999999997" width="16.4" height="16.65" rx="2.2" fill="#f6b16a"/><path d="M2.2 37.599999999999994 V25.749999999999996 H13.799999999999999" fill="none" stroke="#fcdcb6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="0" y="43.699999999999996" width="19" height="19.25" rx="2.2" fill="#dd9550"/><rect x="0" y="43.699999999999996" width="16.4" height="16.65" rx="2.2" fill="#f6b16a"/><path d="M2.2 57.74999999999999 V45.9 H13.799999999999999" fill="none" stroke="#fcdcb6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="0" y="63.849999999999994" width="19" height="20.15" rx="2.2" fill="#dd9550"/><rect x="0" y="63.849999999999994" width="16.4" height="17.549999999999997" rx="2.2" fill="#f6b16a"/><path d="M2.2 78.80000000000001 V66.05 H13.799999999999999" fill="none" stroke="#fcdcb6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.6 3.4 V1.4 Q2.6 0.0 4.0 0.0 H6.799999999999999 Q8.2 0.0 8.2 1.4 V3.4 Z" fill="#dd9550"/><path d="M2.6 3.4 V1.4 Q2.6 0.0 4.0 0.0 H5.6 Q6.999999999999999 0.0 6.999999999999999 1.4 V3.4 Z" fill="#f6b16a"/><path d="M3.8 2.8 V1.6 H5.6" fill="none" stroke="#fcdcb6" stroke-width="1" stroke-linecap="round"/><path d="M9.6 3.4 V1.4 Q9.6 0.0 11.0 0.0 H13.799999999999999 Q15.2 0.0 15.2 1.4 V3.4 Z" fill="#dd9550"/><path d="M9.6 3.4 V1.4 Q9.6 0.0 11.0 0.0 H12.6 Q14.0 0.0 14.0 1.4 V3.4 Z" fill="#f6b16a"/><path d="M10.799999999999999 2.8 V1.6 H12.6" fill="none" stroke="#fcdcb6" stroke-width="1" stroke-linecap="round"/>
+    <rect x="41" y="3.4" width="19" height="80.6" rx="2.5" fill="#ad4444"/><rect x="41" y="3.4" width="19" height="19.25" rx="2.2" fill="#c55050"/><rect x="41" y="3.4" width="16.4" height="16.65" rx="2.2" fill="#df6666"/><path d="M43.2 17.449999999999996 V5.6 H54.8" fill="none" stroke="#f4b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="41" y="23.549999999999997" width="19" height="19.25" rx="2.2" fill="#c55050"/><rect x="41" y="23.549999999999997" width="16.4" height="16.65" rx="2.2" fill="#df6666"/><path d="M43.2 37.599999999999994 V25.749999999999996 H54.8" fill="none" stroke="#f4b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="41" y="43.699999999999996" width="19" height="19.25" rx="2.2" fill="#c55050"/><rect x="41" y="43.699999999999996" width="16.4" height="16.65" rx="2.2" fill="#df6666"/><path d="M43.2 57.74999999999999 V45.9 H54.8" fill="none" stroke="#f4b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="41" y="63.849999999999994" width="19" height="20.15" rx="2.2" fill="#c55050"/><rect x="41" y="63.849999999999994" width="16.4" height="17.549999999999997" rx="2.2" fill="#df6666"/><path d="M43.2 78.80000000000001 V66.05 H54.8" fill="none" stroke="#f4b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M43.6 3.4 V1.4 Q43.6 0.0 45.0 0.0 H47.800000000000004 Q49.2 0.0 49.2 1.4 V3.4 Z" fill="#c55050"/><path d="M43.6 3.4 V1.4 Q43.6 0.0 45.0 0.0 H46.6 Q48.0 0.0 48.0 1.4 V3.4 Z" fill="#df6666"/><path d="M44.800000000000004 2.8 V1.6 H46.6" fill="none" stroke="#f4b0b0" stroke-width="1" stroke-linecap="round"/><path d="M50.599999999999994 3.4 V1.4 Q50.599999999999994 0.0 51.99999999999999 0.0 H54.8 Q56.199999999999996 0.0 56.199999999999996 1.4 V3.4 Z" fill="#c55050"/><path d="M50.599999999999994 3.4 V1.4 Q50.599999999999994 0.0 51.99999999999999 0.0 H53.599999999999994 Q54.99999999999999 0.0 54.99999999999999 1.4 V3.4 Z" fill="#df6666"/><path d="M51.8 2.8 V1.6 H53.599999999999994" fill="none" stroke="#f4b0b0" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <!-- I: a macOS terminal window (slate-blue frame, pale screen: apart from Bench in both themes): red / yellow / green traffic lights, commands
+       typed after a green prompt with their gray output, then a blinking block cursor. Typed once on load;
+       without animation (reduced motion, static renderers) every line is shown. -->
+  <g id="I" transform="translate(156 0)">
+    <rect x="0" y="0" width="36" height="100" rx="4.5" fill="#4d6582"/><rect x="0" y="0" width="33" height="97" rx="4.5" fill="#5f7a99"/><path d="M2.2 94.4 V2.2 H30.4" fill="none" stroke="#8ba3be" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="3" y="11.5" width="27.4" height="82.9" rx="1.8" fill="#eef3f8"/>
+    <path d="M4.2 12.2 H29.2" stroke="#4d6582" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+    <circle cx="6.4" cy="5.8" r="2.4" fill="#ff5f57"/>
+    <circle cx="12.8" cy="5.8" r="2.4" fill="#febc2e"/>
+    <circle cx="19.200000000000003" cy="5.8" r="2.4" fill="#28c840"/>
+    <path d="M5.6 17.1 l2.9 2.9 l-2.9 2.9" fill="none" stroke="#4f9a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="11.5" y="18.4" width="16" height="3.2" rx="1.6" fill="#464d56"/>
+    <rect x="5.6" y="27.799999999999997" width="22" height="3.2" rx="1.6" fill="#a7b0bb"/>
+    <rect x="5.6" y="37.199999999999996" width="15" height="3.2" rx="1.6" fill="#a7b0bb"/>
+    <path d="M5.6 45.3 l2.9 2.9 l-2.9 2.9" fill="none" stroke="#4f9a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="11.5" y="46.599999999999994" width="12" height="3.2" rx="1.6" fill="#464d56"/>
+    <rect x="5.6" y="55.99999999999999" width="20" height="3.2" rx="1.6" fill="#a7b0bb"/>
+    <rect x="5.6" y="65.4" width="10" height="3.2" rx="1.6" fill="#a7b0bb"/>
+    <path d="M5.6 73.5 l2.9 2.9 l-2.9 2.9" fill="none" stroke="#4f9a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <g><rect x="11.5" y="72.60000000000001" width="5.4" height="7.6" rx="0.6" fill="#464d56"/></g>
+  </g>
+</svg>

@@ -422,11 +422,6 @@ svg.chart .row:hover .hl { fill: var(--tint); }
 .hbar-row .v { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
 .insight { margin: 14px 0 0; padding: 11px 14px; border-left: 3px solid var(--logo-blue); background: var(--tint); border-radius: 0 10px 10px 0; font-size: 14px; color: var(--ink-2); }
 .insight b { color: var(--ink); }
-details.table-wrap { margin-top: 18px; }
-details.table-wrap summary { cursor: pointer; font-weight: 700; font-size: 14.5px; color: var(--accent-ink); list-style: none; display: inline-flex; align-items: center; gap: 8px; }
-details.table-wrap summary::-webkit-details-marker { display: none; }
-details.table-wrap summary::before { content: "+"; display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 999px; border: 1px solid currentColor; font-size: 15px; line-height: 1; }
-details.table-wrap[open] summary::before { content: "–"; }
 .table-scroll { overflow-x: auto; margin-top: 12px; border: 1px solid var(--rule); border-radius: 12px; background: #fff; }
 table.main { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 920px; font-size: 13px; font-variant-numeric: tabular-nums; }
 table.main th, table.main td { padding: 7px 8px; text-align: center; border-bottom: 1px solid var(--rule-2); white-space: nowrap; }
@@ -789,7 +784,6 @@ figcaption { text-align: left; }
 .ds-table,
 .seg button,
 .gap-stat .insight,
-details.table-wrap summary,
 .kf a,
 .kf-wide a,
 .finding a,

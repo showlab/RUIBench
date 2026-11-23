@@ -786,9 +786,9 @@ figcaption { text-align: left; }
 .real-info .suite,
 .figure figcaption,
 .ovfig figcaption,
-.hbar-row,
-.check-table,
 .ds-table,
+.seg button,
+.gap-stat .insight,
 details.table-wrap summary,
 .kf a,
 .kf-wide a,
@@ -799,7 +799,6 @@ details.table-wrap summary,
 .note,
 .eq-note,
 .band-label,
-.mx-rowhead,
 .criterion,
 .tally div,
 .verdict,
@@ -808,7 +807,9 @@ details.table-wrap summary,
 .tooltip,
 .tooltip h4,
 svg.chart .label,
-svg.chart .gain,
+.hbar-row,
+.check-table,
+.form-key,
 .ds-form p,
 .mx-title small,
 .bib pre,
@@ -821,8 +822,9 @@ table.main { font-size: var(--fs-caption); }
 .finding .tag,
 .eyebrow,
 .mx-colhead,
-.form-key,
+.mx-rowhead,
 svg.chart text,
+svg.chart .gain,
 svg.chart .val,
 .tab .count,
 .clip-cap,
@@ -862,7 +864,8 @@ svg.chart .label.sm,
 .tl-arrow { font-size: var(--fs-tiny); }
 /* hero: the subtitle and wordmark keep their own sizes; the authors one step above body */
 .authors { font-size: var(--fs-lead); }
-/* big numbers: one size per kind */
+/* big numbers: one size per kind (a section's stat = the equation numbers; a card's stat; the tally) */
+.gap-stat .big { font-size: clamp(36px, 4.4vw, 54px); }   /* = .eq-t b */
 .kf .big, .kf-wide .big { font-size: 32px; }
 .tally b { font-size: 24px; }
 .tc-top .real { font-size: var(--fs-tiny); }
@@ -1029,3 +1032,9 @@ td, th, cite, .tc-body, .quote, .mx-free-note { text-wrap: balance; }
 .subtitle, .kicker, .chart-title, .kf h3, .kf-wide h3, .finding h3, .real-info h3, .lb-title, .tc-title, .principle b, .layer-h b, .heat-title, .heat-table th.grp { letter-spacing: 0; }
 .band-num, .eq-t b, .kf .big, .kf-wide .big, .finding .big, .gap-stat .big, .tally b, .free-k { letter-spacing: -.02em; }
 .title-13 .big-num { letter-spacing: -.03em; }
+
+/* one style per role: group headings 800 like every other title; every control (tabs, segmented switches) 600;
+   every uppercase label one tracking */
+.mx-title, .dumb-title { font-weight: 800; }
+.abs-seg .abs-btn { font-weight: 600; }
+.eyebrow, .kf .tag, .kf-wide .tag, .finding .tag, .tc-top .real, .lb-text .k { letter-spacing: .06em; }

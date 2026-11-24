@@ -26,8 +26,8 @@
 <p align="center"><sup>*</sup> equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> corresponding author</p>
 
 <p align="center">
-📄 Paper (coming soon) &nbsp;|&nbsp;
-🤗 Daily Paper (coming soon) &nbsp;|&nbsp;
+📄 <a href="https://arxiv.org/abs/2611.31115">Paper</a> &nbsp;|&nbsp;
+🤗 <a href="https://huggingface.co/papers/2611.31115">Daily Paper</a> &nbsp;|&nbsp;
 🦾 <a href="https://huggingface.co/showlab/RUIBench-Qwen">HF Models</a> &nbsp;|&nbsp;
 📊 <a href="https://huggingface.co/datasets/showlab/RUIBench-Rollouts">HF Dataset</a> &nbsp;|&nbsp;
 🌐 <a href="https://showlab.github.io/RUIBench/">Project Page</a>
@@ -203,7 +203,7 @@ If you use RUIBench or RUIKit, please cite the paper:
 @article{chen2026ruibench,
   title={Ruibench: What makes a good robot-use interface?},
   author={Chen, Yanzhe and Cao, Zhijun and Bai, Zechen and Zeng, Wenzheng and Ma, Kevin Yuchen and Lin, Yiqi and Liang, Guoqiang and Liu, Xiaokang and Sun, Ke and Lin, Kevin Qinghong and Shou, Mike Zheng},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2611.31115},
   year={2026}
 }
 ```

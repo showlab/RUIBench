@@ -21,7 +21,8 @@ authors:
 preferred-citation:
   type: article
   title: "RUIBench: What Makes a Good Robot-Use Interface?"
-  journal: "arXiv preprint arXiv:"
+  journal: "arXiv preprint arXiv:2611.31115"
+  url: "https://arxiv.org/abs/2611.31115"
   year: 2026
   authors:
     - {family-names: Chen, given-names: Yanzhe}

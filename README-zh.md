@@ -26,8 +26,8 @@
 <p align="center"><sup>*</sup> 共同第一作者 &nbsp;&middot;&nbsp; <sup>&dagger;</sup> 通讯作者</p>
 
 <p align="center">
-📄 Arxiv 论文 (即将发布) &nbsp;|&nbsp;
-🤗 每日论文 (即将发布) &nbsp;|&nbsp;
+📄 <a href="https://arxiv.org/abs/2611.31115">Arxiv 论文</a> &nbsp;|&nbsp;
+🤗 <a href="https://huggingface.co/papers/2611.31115">每日论文</a> &nbsp;|&nbsp;
 🦾 <a href="https://huggingface.co/showlab/RUIBench-Qwen">模型</a> &nbsp;|&nbsp;
 📊 <a href="https://huggingface.co/datasets/showlab/RUIBench-Rollouts">数据集</a> &nbsp;|&nbsp;
 🌐 <a href="https://showlab.github.io/RUIBench/">主页</a>
@@ -172,7 +172,7 @@ assets/     logo 和插图
 @article{chen2026ruibench,
   title={Ruibench: What makes a good robot-use interface?},
   author={Chen, Yanzhe and Cao, Zhijun and Bai, Zechen and Zeng, Wenzheng and Ma, Kevin Yuchen and Lin, Yiqi and Liang, Guoqiang and Liu, Xiaokang and Sun, Ke and Lin, Kevin Qinghong and Shou, Mike Zheng},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2611.31115},
   year={2026}
 }
 ```

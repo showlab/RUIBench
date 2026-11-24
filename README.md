@@ -22,8 +22,8 @@
 <p align="center"><sup>*</sup> equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> corresponding author</p>
 
 <p align="center">
-📄 Paper (coming soon) &nbsp;|&nbsp;
-🤗 Daily Paper (coming soon) &nbsp;|&nbsp;
+📄 <a href="https://arxiv.org/abs/2611.31115">Paper</a> &nbsp;|&nbsp;
+🤗 <a href="https://huggingface.co/papers/2611.31115">Daily Paper</a> &nbsp;|&nbsp;
 🦾 <a href="https://huggingface.co/showlab/RUIBench-Qwen">HF Models</a> &nbsp;|&nbsp;
 📊 <a href="https://huggingface.co/datasets/showlab/RUIBench-Rollouts">HF Dataset</a> &nbsp;|&nbsp;
 🌐 <a href="https://showlab.github.io/RUIBench/">Project Page</a>
